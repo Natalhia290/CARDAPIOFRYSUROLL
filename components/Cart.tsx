@@ -28,9 +28,9 @@ export default function Cart() {
 
     const message = `🍣 *PEDIDO FRYSUROLL* 🍣
 
-*Cliente:* ${customerName || 'Não informado'}
-*Endereço:* ${customerAddress || 'Não informado'}
-*Telefone:* ${customerPhone || 'Não informado'}
+*Cliente:* ${customerName}
+*Endereço:* ${customerAddress}
+*Telefone:* ${customerPhone}
 
 *ITENS:*
 ${items}
@@ -45,17 +45,24 @@ _Pedido feito pelo site FrySuRoll_`
 
   const sendToWhatsApp = () => {
     if (state.items.length === 0) return
-    
+
     const total = getTotalPrice()
+
+    // Validação dos campos obrigatórios
+    if (!customerName.trim() || !customerAddress.trim() || !customerPhone.trim()) {
+      alert('Por favor, preencha todos os campos obrigatórios: Nome, Endereço e Telefone.')
+      return
+    }
+
     if (total < 30) {
       alert(`Pedido mínimo de R$ 30,00. Seu pedido atual é de ${formatPrice(total)}. Adicione mais itens para continuar!`)
       return
     }
-    
+
     const message = generateWhatsAppMessage()
     const whatsappUrl = `https://wa.me/5562995045038?text=${message}`
     window.open(whatsappUrl, '_blank')
-    
+
     // Mostrar o jogo após enviar o pedido
     setShowGame(true)
     clearCart()
