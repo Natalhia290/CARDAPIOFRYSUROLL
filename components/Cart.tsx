@@ -89,7 +89,7 @@ _Pedido feito pelo site FrySuRoll_`
         </div>
 
         {/* Cart Items */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4 max-h-[70vh]">
+        <div className="flex-1 overflow-y-auto p-4 space-y-4 max-h-[60vh]">
           {state.items.length === 0 ? (
             <div className="text-center py-8 text-gray-500">
               <p>Seu carrinho está vazio</p>
