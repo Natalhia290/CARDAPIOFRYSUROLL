@@ -150,7 +150,7 @@ _Pedido feito pelo site FrySuRoll_`
 
         {/* Footer */}
         {state.items.length > 0 && (
-          <div className="border-t p-4 space-y-3">
+          <div className="border-t p-4 space-y-3 sticky bottom-0 bg-white">
             <div className="flex justify-between text-sm">
               <span>Subtotal:</span>
               <span>{formatPrice(getTotalPrice())}</span>
