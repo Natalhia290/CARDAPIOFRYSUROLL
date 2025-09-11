@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { Clock, CheckCircle, XCircle } from 'lucide-react'
 
 export default function StoreStatus() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isStoreOpen, setIsStoreOpen] = useState(false)
   const [currentTime, setCurrentTime] = useState('')
   const [nextOpenTime, setNextOpenTime] = useState('')
 
@@ -20,19 +20,16 @@ export default function StoreStatus() {
       
       setCurrentTime(currentTimeString)
       
-      // Loja abre às 18:00 e fecha às 23:59
-      const isCurrentlyOpen = currentHour >= 18 && currentHour <= 23
+      // Loja aberta das 18:00 às 23:59
+      const isOpen = currentHour >= 18 && currentHour <= 23
+      setIsStoreOpen(isOpen)
       
-      setIsOpen(isCurrentlyOpen)
-      
-      // Calcular próximo horário de abertura
-      if (!isCurrentlyOpen) {
+      if (!isOpen) {
+        // Calcular próxima abertura
         const nextOpen = new Date()
         if (currentHour < 18) {
-          // Se for antes das 18h, abre hoje às 18h
           nextOpen.setHours(18, 0, 0, 0)
         } else {
-          // Se for depois das 23h59, abre amanhã às 18h
           nextOpen.setDate(nextOpen.getDate() + 1)
           nextOpen.setHours(18, 0, 0, 0)
         }
@@ -50,26 +47,26 @@ export default function StoreStatus() {
   }, [])
 
   return (
-    <div className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-medium ${
-      isOpen 
-        ? 'bg-green-100 text-green-800 border border-green-200' 
-        : 'bg-red-100 text-red-800 border border-red-200'
+    <div className={`w-full py-2 px-4 text-center text-sm font-medium ${
+      isStoreOpen 
+        ? 'bg-green-100 text-green-800 border-b border-green-200' 
+        : 'bg-red-100 text-red-800 border-b border-red-200'
     }`}>
-      {isOpen ? (
-        <>
-          <CheckCircle className="w-4 h-4" />
-          <span>Loja Aberta</span>
-          <Clock className="w-4 h-4" />
-          <span>{currentTime}</span>
-        </>
-      ) : (
-        <>
-          <XCircle className="w-4 h-4" />
-          <span>Loja Fechada</span>
-          <Clock className="w-4 h-4" />
-          <span>Abre às {nextOpenTime}</span>
-        </>
-      )}
+      <div className="flex items-center justify-center gap-2">
+        {isStoreOpen ? (
+          <>
+            <CheckCircle className="w-4 h-4" />
+            <span>🍣 LOJA ABERTA - Funcionamento: 18:00 às 23:59</span>
+          </>
+        ) : (
+          <>
+            <XCircle className="w-4 h-4" />
+            <span>🍣 LOJA FECHADA - Próxima abertura: {nextOpenTime}</span>
+          </>
+        )}
+        <Clock className="w-4 h-4" />
+        <span>{currentTime}</span>
+      </div>
     </div>
   )
 }
