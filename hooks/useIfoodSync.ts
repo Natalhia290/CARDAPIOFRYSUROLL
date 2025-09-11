@@ -71,7 +71,7 @@ export function useIfoodSync(): UseIfoodSyncReturn {
     error,
     refresh,
     isOpen: data?.isOpen || false,
-    nextOpenTime: data?.nextOpenTime,
+    nextOpenTime: data?.nextOpenTime || undefined,
     getPrice
   }
 }
