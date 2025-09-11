@@ -5,7 +5,6 @@ import { CartProvider } from '@/context/CartContext'
 import Header from '@/components/Header'
 import Cart from '@/components/Cart'
 import Footer from '@/components/Footer'
-import SecurityProtection from '@/components/SecurityProtection'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,12 +21,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <head>
-        <script src="/security.js" defer></script>
-      </head>
       <body className={inter.className}>
         <CartProvider>
-          <SecurityProtection />
           <div className="min-h-screen bg-gray-50 flex flex-col">
             <Header />
             <main className="flex-1 pb-20">

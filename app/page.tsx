@@ -1,11 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import { MapPin, Clock, Star, Phone } from 'lucide-react'
+import { ShoppingCart, MapPin, Clock, Star, Phone } from 'lucide-react'
 import { useCart } from '@/context/CartContext'
 import { products } from '@/data/products'
-import ProductCard from '@/components/ProductCard'
-import IfoodStatus from '@/components/IfoodStatus'
+import { formatPrice } from '@/utils/formatPrice'
+import ProductImage from '@/components/ProductImage'
 import AnimatedSushi from '@/components/AnimatedSushi'
 
 export default function Home() {
@@ -93,11 +93,11 @@ export default function Home() {
               <p className="text-gray-600">Entregamos em toda Goiânia com rapidez e qualidade</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="w-8 h-8 text-primary-600 mx-auto mb-3 flex items-center justify-center">
-                <span className="text-2xl font-bold">R$</span>
+              <div className="w-8 h-8 text-green-600 mx-auto mb-3 flex items-center justify-center">
+                <span className="text-2xl font-bold">✓</span>
               </div>
-              <h3 className="font-semibold text-lg mb-2">Frete por KM</h3>
-              <p className="text-gray-600">Apenas R$ 1,00 por quilômetro de distância</p>
+              <h3 className="font-semibold text-lg mb-2">Frete Grátis</h3>
+              <p className="text-gray-600">Entrega gratuita para toda Goiânia</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <Phone className="w-8 h-8 text-primary-600 mx-auto mb-3" />
@@ -131,13 +131,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Status iFood */}
-      <section className="py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <IfoodStatus />
-        </div>
-      </section>
-
       {/* Menu Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -167,11 +160,64 @@ export default function Home() {
           {/* Products Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProducts.map((product, index) => (
-              <ProductCard 
+              <div 
                 key={product.id} 
-                product={product} 
-                index={index} 
-              />
+                className="card overflow-hidden card-hover fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {/* Product Image */}
+                <ProductImage
+                  src={product.image || '/images/products/placeholder.jpg'}
+                  alt={product.name}
+                  className="product-image"
+                  category={product.category}
+                />
+                
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="font-semibold text-lg text-gray-900 line-clamp-2">
+                      {product.name}
+                    </h3>
+                    <div className="flex flex-col items-end space-y-1">
+                      {product.discount && (
+                        <span className="bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+                          -{product.discount}%
+                        </span>
+                      )}
+                      {(product.category.includes('Hot') || product.category.includes('Sushidogroll')) && (
+                        <span className="bg-primary-100 text-primary-700 text-xs px-2 py-1 rounded-full font-medium">
+                          🍤 FRITO
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                    {product.description}
+                  </p>
+                  
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-2">
+                      <span className="text-2xl font-bold text-primary-600">
+                        {formatPrice(product.price)}
+                      </span>
+                      {product.originalPrice && (
+                        <span className="text-sm text-gray-500 line-through">
+                          {formatPrice(product.originalPrice)}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <button
+                    onClick={() => addItem(product)}
+                    className="w-full btn-primary flex items-center justify-center space-x-2 bounce-in hover:scale-105 transition-transform"
+                  >
+                    <ShoppingCart className="w-4 h-4" />
+                    <span>Adicionar ao Carrinho</span>
+                  </button>
+                </div>
+              </div>
             ))}
           </div>
         </div>

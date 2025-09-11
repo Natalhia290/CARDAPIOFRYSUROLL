@@ -21,26 +21,31 @@ export default function Footer() {
           </div>
           
           {/* Contato */}
-          <div>
-            <h4 className="font-semibold mb-4">Contato</h4>
-            <div className="space-y-2 text-gray-300">
-              <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4" />
-                <span>(62) 99504-5038</span>
+            <div>
+              <h4 className="font-semibold mb-4">Contato</h4>
+              <div className="space-y-2 text-gray-300">
+                <div className="flex items-center space-x-2">
+                  <Phone className="w-4 h-4" />
+                  <span>(62) 99504-5038</span>
+                </div>
+                <p>WhatsApp: (62) 99504-5038</p>
+                <div className="mt-3">
+                  <p className="font-semibold text-white mb-1">Horário de Funcionamento:</p>
+                  <p>18:00 às 23:59</p>
+                </div>
               </div>
-              <p>WhatsApp: (62) 99504-5038</p>
             </div>
-          </div>
           
           {/* Entrega */}
-          <div>
-            <h4 className="font-semibold mb-4">Entrega</h4>
-            <div className="text-gray-300 space-y-1">
-              <p>• R$ 1,00 por quilômetro</p>
-              <p>• Toda Goiânia</p>
-              <p>• Entrega rápida</p>
+            <div>
+              <h4 className="font-semibold mb-4">Entrega</h4>
+              <div className="text-gray-300 space-y-1">
+                <p>• Frete GRÁTIS</p>
+                <p>• Toda Goiânia</p>
+                <p>• Entrega rápida</p>
+                <p>• Pedido mínimo: R$ 50,00</p>
+              </div>
             </div>
-          </div>
 
           {/* Desenvolvimento de Sites */}
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-4 rounded-lg">

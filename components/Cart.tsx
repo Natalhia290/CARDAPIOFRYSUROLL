@@ -36,7 +36,7 @@ export default function Cart() {
 ${items}
 
 *Subtotal:* ${formatPrice(getTotalPrice())}
-*Taxa de entrega:* Será calculada no WhatsApp
+*Taxa de entrega:* GRÁTIS
 
 _Pedido feito pelo site FrySuRoll_`
 
@@ -54,8 +54,8 @@ _Pedido feito pelo site FrySuRoll_`
       return
     }
 
-    if (total < 30) {
-      alert(`Pedido mínimo de R$ 30,00. Seu pedido atual é de ${formatPrice(total)}. Adicione mais itens para continuar!`)
+    if (total < 50) {
+      alert(`Pedido mínimo de R$ 50,00. Seu pedido atual é de ${formatPrice(total)}. Adicione mais itens para continuar!`)
       return
     }
 
@@ -162,25 +162,25 @@ _Pedido feito pelo site FrySuRoll_`
               <span>Subtotal:</span>
               <span>{formatPrice(getTotalPrice())}</span>
             </div>
-            <div className="flex justify-between text-sm text-gray-600">
+            <div className="flex justify-between text-sm text-green-600 font-medium">
               <span>Taxa de entrega:</span>
-              <span>Será calculada no WhatsApp</span>
+              <span>GRÁTIS</span>
             </div>
-            {getTotalPrice() < 30 && (
+            {getTotalPrice() < 50 && (
               <div className="flex justify-between text-sm text-orange-600 font-medium">
                 <span>Pedido mínimo:</span>
-                <span>R$ 30,00</span>
+                <span>R$ 50,00</span>
               </div>
             )}
             <div className="flex justify-between font-semibold text-lg">
               <span>Subtotal:</span>
-              <span className={getTotalPrice() < 30 ? 'text-orange-600' : 'text-gray-900'}>
+              <span className={getTotalPrice() < 50 ? 'text-orange-600' : 'text-gray-900'}>
                 {formatPrice(getTotalPrice())}
               </span>
             </div>
-            {getTotalPrice() < 30 && (
+            {getTotalPrice() < 50 && (
               <div className="text-xs text-orange-600 text-center">
-                Faltam {formatPrice(30 - getTotalPrice())} para o pedido mínimo
+                Faltam {formatPrice(50 - getTotalPrice())} para o pedido mínimo
               </div>
             )}
             
@@ -194,14 +194,14 @@ _Pedido feito pelo site FrySuRoll_`
               <button
                 onClick={sendToWhatsApp}
                 className={`flex-1 py-2 px-4 rounded-lg transition-colors flex items-center justify-center space-x-2 ${
-                  getTotalPrice() < 30 
+                  getTotalPrice() < 50 
                     ? 'bg-orange-500 text-white hover:bg-orange-600' 
                     : 'bg-green-600 text-white hover:bg-green-700'
                 }`}
               >
                 <Phone className="w-4 h-4" />
                 <span>
-                  {getTotalPrice() < 30 ? 'Pedido Mínimo R$ 30' : 'Pedir no WhatsApp'}
+                  {getTotalPrice() < 50 ? 'Pedido Mínimo R$ 50' : 'Pedir no WhatsApp'}
                 </span>
               </button>
             </div>
