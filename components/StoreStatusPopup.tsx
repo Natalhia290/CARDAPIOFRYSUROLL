@@ -62,24 +62,34 @@ export default function StoreStatusPopup() {
     // }
   }, [])
 
+  // Forçar popup a aparecer no mobile
+  useEffect(() => {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    console.log('Mobile check:', { isMobile, userAgent: navigator.userAgent })
+    if (isMobile) {
+      setShowPopup(true)
+    }
+  }, [])
+
   const handleClose = () => {
     setShowPopup(false)
     const today = new Date().toDateString()
     localStorage.setItem(`storePopupClosed_${today}`, 'true')
   }
 
-  console.log('Rendering popup:', { showPopup, isStoreOpen, currentTime })
+  console.log('Rendering popup:', { showPopup, isStoreOpen, currentTime, userAgent: navigator.userAgent })
   
+  // Forçar popup a aparecer sempre para debug
   if (!showPopup) {
-    console.log('Popup not showing because showPopup is false')
-    return null
+    console.log('Popup not showing because showPopup is false - forcing to show')
+    setShowPopup(true)
   }
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-      <div className={`bg-white rounded-lg shadow-2xl max-w-md w-full p-4 sm:p-6 relative ${
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center p-4" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
+      <div className={`bg-white rounded-lg shadow-2xl max-w-md w-full p-4 sm:p-6 relative mx-4 ${
         isStoreOpen ? 'border-l-4 border-green-500' : 'border-l-4 border-red-500'
-      }`}>
+      }`} style={{ position: 'relative', zIndex: 10000 }}>
         {/* Close Button */}
         <button
           onClick={handleClose}
