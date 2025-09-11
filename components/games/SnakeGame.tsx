@@ -57,6 +57,9 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
       const newSnake = [...prevSnake]
       const head = { ...newSnake[0] }
       
+      // Só move se tiver direção definida
+      if (direction.x === 0 && direction.y === 0) return prevSnake
+      
       head.x += direction.x
       head.y += direction.y
 
@@ -109,15 +112,23 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
 
       switch (e.key) {
         case 'ArrowUp':
+        case 'w':
+        case 'W':
           if (direction.y === 0) setDirection({ x: 0, y: -1 })
           break
         case 'ArrowDown':
+        case 's':
+        case 'S':
           if (direction.y === 0) setDirection({ x: 0, y: 1 })
           break
         case 'ArrowLeft':
+        case 'a':
+        case 'A':
           if (direction.x === 0) setDirection({ x: -1, y: 0 })
           break
         case 'ArrowRight':
+        case 'd':
+        case 'D':
           if (direction.x === 0) setDirection({ x: 1, y: 0 })
           break
       }
@@ -126,6 +137,25 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
     window.addEventListener('keydown', handleKeyPress)
     return () => window.removeEventListener('keydown', handleKeyPress)
   }, [direction, gameState])
+
+  const handleTouchMove = (moveDirection: 'up' | 'down' | 'left' | 'right') => {
+    if (gameState !== 'playing') return
+
+    switch (moveDirection) {
+      case 'up':
+        if (direction.y === 0) setDirection({ x: 0, y: -1 })
+        break
+      case 'down':
+        if (direction.y === 0) setDirection({ x: 0, y: 1 })
+        break
+      case 'left':
+        if (direction.x === 0) setDirection({ x: -1, y: 0 })
+        break
+      case 'right':
+        if (direction.x === 0) setDirection({ x: 1, y: 0 })
+        break
+    }
+  }
 
   const getSnakeEmoji = (index: number) => {
     if (index === 0) return '🐍' // Cabeça
@@ -229,13 +259,49 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
         </div>
       </div>
 
+      {/* Touch Controls for Mobile */}
+      {gameState === 'playing' && (
+        <div className="mt-4 space-y-2">
+          <div className="flex justify-center">
+            <button
+              onClick={() => handleTouchMove('up')}
+              className="w-12 h-12 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors flex items-center justify-center"
+            >
+              ⬆️
+            </button>
+          </div>
+          <div className="flex justify-center space-x-4">
+            <button
+              onClick={() => handleTouchMove('left')}
+              className="w-12 h-12 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors flex items-center justify-center"
+            >
+              ⬅️
+            </button>
+            <button
+              onClick={() => handleTouchMove('right')}
+              className="w-12 h-12 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors flex items-center justify-center"
+            >
+              ➡️
+            </button>
+          </div>
+          <div className="flex justify-center">
+            <button
+              onClick={() => handleTouchMove('down')}
+              className="w-12 h-12 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors flex items-center justify-center"
+            >
+              ⬇️
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Instruções */}
       <div className="text-center text-sm text-gray-600 mb-4">
         {gameState === 'menu' && (
-          <p>Use as setas do teclado para controlar a cobrinha! 🐍</p>
+          <p>Use as setas do teclado ou WASD para controlar a cobrinha! 🐍</p>
         )}
         {gameState === 'playing' && (
-          <p>Colete os sushis para ganhar pontos! ⬆️⬇️⬅️➡️</p>
+          <p>Colete os sushis para ganhar pontos! Use as setas ou botões! ⬆️⬇️⬅️➡️</p>
         )}
         {gameState === 'paused' && (
           <p>Jogo pausado. Clique em &quot;Continuar&quot; para retomar! ⏸️</p>

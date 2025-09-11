@@ -319,16 +319,16 @@ export default function SushiQuiz({ onClose }: SushiQuizProps) {
             onClick={() => handleAnswerSelect(index)}
             disabled={showResult}
             className={`
-              w-full p-3 rounded-lg border-2 text-left transition-all duration-300
+              w-full p-3 rounded-lg border-2 text-left transition-all duration-300 text-gray-900
               ${selectedAnswer === index
                 ? showResult
                   ? isCorrect
-                    ? 'border-green-500 bg-green-100 text-green-700'
-                    : 'border-red-500 bg-red-100 text-red-700'
-                  : 'border-blue-500 bg-blue-100 text-blue-700'
+                    ? 'border-green-500 bg-green-100 text-green-800'
+                    : 'border-red-500 bg-red-100 text-red-800'
+                  : 'border-blue-500 bg-blue-100 text-blue-800'
                 : showResult && index === question.correct
-                ? 'border-green-500 bg-green-100 text-green-700'
-                : 'border-gray-300 bg-white hover:border-gray-400 hover:bg-gray-50'
+                ? 'border-green-500 bg-green-100 text-green-800'
+                : 'border-gray-300 bg-white hover:border-gray-400 hover:bg-gray-50 text-gray-900'
               }
               ${showResult ? 'cursor-default' : 'cursor-pointer hover:scale-105'}
             `}

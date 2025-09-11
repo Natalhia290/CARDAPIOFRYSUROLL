@@ -309,7 +309,7 @@ export default function MemoryGame({ onClose }: MemoryGameProps) {
             key={card.id}
             onClick={() => handleCardClick(card.id)}
             className={`
-              w-16 h-16 rounded-lg border-2 flex items-center justify-center text-2xl transition-all duration-300 transform
+              w-12 h-12 sm:w-16 sm:h-16 rounded-lg border-2 flex items-center justify-center text-xl sm:text-2xl transition-all duration-300 transform hover:scale-105 active:scale-95
               ${card.isFlipped || card.isMatched
                 ? 'bg-white border-primary-500 scale-105'
                 : 'bg-gray-200 border-gray-300 hover:border-gray-400 hover:scale-105'

@@ -182,6 +182,11 @@ export default function SushiCatch({ onClose }: SushiCatchProps) {
     return () => window.removeEventListener('keydown', handleKeyPress)
   }, [gameState, movePlayer])
 
+  const handleTouchMove = (direction: 'left' | 'right') => {
+    if (gameState !== 'playing') return
+    movePlayer(direction)
+  }
+
   if (gameState === 'menu') {
     return (
       <div className="w-full max-w-md mx-auto text-center">
@@ -325,6 +330,24 @@ export default function SushiCatch({ onClose }: SushiCatchProps) {
         {/* Ground line */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-600"></div>
       </div>
+
+      {/* Touch Controls for Mobile */}
+      {gameState === 'playing' && (
+        <div className="mt-4 flex justify-center space-x-4">
+          <button
+            onClick={() => handleTouchMove('left')}
+            className="w-16 h-12 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors flex items-center justify-center text-lg font-bold"
+          >
+            ← ESQ
+          </button>
+          <button
+            onClick={() => handleTouchMove('right')}
+            className="w-16 h-12 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors flex items-center justify-center text-lg font-bold"
+          >
+            DIR →
+          </button>
+        </div>
+      )}
 
       {/* Instructions */}
       <div className="text-center text-sm text-gray-600">

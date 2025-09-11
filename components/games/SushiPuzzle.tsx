@@ -111,6 +111,8 @@ export default function SushiPuzzle({ onClose }: SushiPuzzleProps) {
   }
 
   const checkWin = useCallback(() => {
+    if (gameState !== 'playing' || pieces.length === 0) return
+    
     const puzzleData = sushiPuzzles[currentPuzzle]
     const isCorrect = pieces.every((piece, index) => 
       piece.emoji === puzzleData.emojis[index]
@@ -124,11 +126,11 @@ export default function SushiPuzzle({ onClose }: SushiPuzzleProps) {
         nextPuzzle()
       }, 1000)
     }
-  }, [pieces, currentPuzzle, nextPuzzle])
+  }, [pieces, currentPuzzle, nextPuzzle, gameState])
 
   useEffect(() => {
     checkWin()
-  }, [pieces, checkWin])
+  }, [checkWin])
 
   // Timer
   useEffect(() => {
@@ -287,7 +289,7 @@ export default function SushiPuzzle({ onClose }: SushiPuzzleProps) {
             key={piece.id}
             onClick={() => handlePieceClick(piece.id)}
             className={`
-              p-4 rounded-lg border-2 text-3xl transition-all duration-300 transform hover:scale-105
+              p-3 sm:p-4 rounded-lg border-2 text-2xl sm:text-3xl transition-all duration-300 transform hover:scale-105 active:scale-95
               ${selectedPiece === piece.id
                 ? 'border-blue-500 bg-blue-100 ring-2 ring-blue-300'
                 : piece.isCorrect
