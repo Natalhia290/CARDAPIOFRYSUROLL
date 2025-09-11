@@ -55,9 +55,11 @@ export default function StoreStatusPopup() {
   useEffect(() => {
     const today = new Date().toDateString()
     const closedToday = localStorage.getItem(`storePopupClosed_${today}`)
-    if (closedToday) {
-      setShowPopup(false)
-    }
+    console.log('Popup check:', { today, closedToday, showPopup })
+    // Temporariamente desabilitado para debug
+    // if (closedToday) {
+    //   setShowPopup(false)
+    // }
   }, [])
 
   const handleClose = () => {
@@ -66,7 +68,12 @@ export default function StoreStatusPopup() {
     localStorage.setItem(`storePopupClosed_${today}`, 'true')
   }
 
-  if (!showPopup) return null
+  console.log('Rendering popup:', { showPopup, isStoreOpen, currentTime })
+  
+  if (!showPopup) {
+    console.log('Popup not showing because showPopup is false')
+    return null
+  }
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
