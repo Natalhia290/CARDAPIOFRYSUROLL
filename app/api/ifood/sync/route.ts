@@ -31,8 +31,8 @@ const PRODUCT_MAPPING: Record<string, string> = {
 
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url)
-    const forceUpdate = searchParams.get('force') === 'true'
+    const url = new URL(request.url)
+    const forceUpdate = url.searchParams.get('force') === 'true'
     
     // Verificar se o cache ainda é válido (5 minutos)
     const now = Date.now()

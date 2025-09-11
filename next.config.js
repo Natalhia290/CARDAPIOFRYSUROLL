@@ -42,7 +42,7 @@ const nextConfig = {
   
   // Configurações de build
   experimental: {
-    optimizeCss: true,
+    // optimizeCss: true, // Desabilitado para evitar erros de build
   },
 
   // Webpack config para ofuscar código

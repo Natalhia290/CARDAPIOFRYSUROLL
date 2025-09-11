@@ -51,9 +51,11 @@ export function useIfoodSync(): UseIfoodSyncReturn {
     return data?.prices[productId] || null
   }, [data])
 
-  // Buscar preços inicial
+  // Buscar preços inicial (apenas no cliente)
   useEffect(() => {
-    fetchPrices()
+    if (typeof window !== 'undefined') {
+      fetchPrices()
+    }
   }, [fetchPrices])
 
   // Atualizar automaticamente a cada 5 minutos
