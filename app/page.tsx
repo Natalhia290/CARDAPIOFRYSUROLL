@@ -7,6 +7,7 @@ import { products } from '@/data/products'
 import { formatPrice } from '@/utils/formatPrice'
 import ProductImage from '@/components/ProductImage'
 import AnimatedSushi from '@/components/AnimatedSushi'
+import StoreStatusPopup from '@/components/StoreStatusPopup'
 
 export default function Home() {
   const { addItem } = useCart()
@@ -19,6 +20,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      {/* Store Status Popup */}
+      <StoreStatusPopup />
+      
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16 overflow-hidden">
         {/* Sushis Animados */}

@@ -4,7 +4,6 @@ import { ShoppingCart, MapPin, Phone } from 'lucide-react'
 import { useCart } from '@/context/CartContext'
 import Link from 'next/link'
 import Image from 'next/image'
-import StoreStatus from './StoreStatus'
 
 export default function Header() {
   const { getTotalItems, toggleCart } = useCart()
@@ -12,10 +11,6 @@ export default function Header() {
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Mobile Store Status */}
-        <div className="lg:hidden flex justify-center py-2">
-          <StoreStatus />
-        </div>
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
@@ -60,7 +55,6 @@ export default function Header() {
 
           {/* Contact Info */}
           <div className="hidden lg:flex items-center space-x-4 text-sm text-gray-600">
-            <StoreStatus />
             <div className="flex items-center space-x-1">
               <MapPin className="w-4 h-4" />
               <span>Goiânia - GO</span>

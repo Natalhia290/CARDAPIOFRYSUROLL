@@ -81,12 +81,12 @@ export default function Sobre() {
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <div className="text-2xl font-bold text-primary-600">R$</div>
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="text-2xl font-bold text-green-600">✓</div>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Frete por KM</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Frete Grátis</h3>
               <p className="text-gray-600">
-                Apenas R$ 1,00 por quilômetro de distância - transparente e justo
+                Entrega gratuita para toda Goiânia - sem surpresas!
               </p>
             </div>
             
@@ -116,6 +116,18 @@ export default function Sobre() {
                 <div className="flex items-center space-x-3">
                   <MapPin className="w-5 h-5 text-primary-600" />
                   <span className="text-gray-700">Goiânia - GO</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Clock className="w-5 h-5 text-primary-600" />
+                  <span className="text-gray-700">18:00 às 23:59</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <span className="text-primary-600 font-bold">💰</span>
+                  <span className="text-gray-700">Pedido mínimo: R$ 50,00</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <span className="text-green-600 font-bold">✓</span>
+                  <span className="text-gray-700">Frete grátis</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Clock className="w-5 h-5 text-primary-600" />
