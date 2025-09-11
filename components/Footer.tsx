@@ -1,12 +1,13 @@
 'use client'
 
 import { MapPin, Phone, Code, MessageCircle } from 'lucide-react'
+import FooterGames from './FooterGames'
 
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Empresa */}
           <div>
             <h3 className="text-xl font-bold mb-4">FrySuRoll</h3>
@@ -67,6 +68,11 @@ export default function Footer() {
             <p className="text-xs text-blue-200 mt-2">
               ✨ Sites que vendem mais! ✨
             </p>
+          </div>
+
+          {/* Jogos Interativos */}
+          <div>
+            <FooterGames />
           </div>
         </div>
         
