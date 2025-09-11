@@ -54,7 +54,7 @@ export async function GET(request: NextRequest) {
       prices: mockPrices.prices,
       lastUpdated: now,
       isOpen: mockPrices.isOpen,
-      nextOpenTime: mockPrices.nextOpenTime
+      nextOpenTime: mockPrices.nextOpenTime || undefined
     }
 
     return NextResponse.json({

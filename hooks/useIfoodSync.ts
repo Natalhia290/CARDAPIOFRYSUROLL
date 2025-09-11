@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback } from 'react'
 interface IfoodData {
   prices: Record<string, number>
   isOpen: boolean
-  nextOpenTime?: string
+  nextOpenTime?: string | null
   lastUpdated: number
 }
 
