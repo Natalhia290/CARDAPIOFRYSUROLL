@@ -4,6 +4,7 @@ import './globals.css'
 import { CartProvider } from '@/context/CartContext'
 import Header from '@/components/Header'
 import Cart from '@/components/Cart'
+import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,11 +23,12 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={inter.className}>
         <CartProvider>
-          <div className="min-h-screen bg-gray-50">
+          <div className="min-h-screen bg-gray-50 flex flex-col">
             <Header />
-            <main className="pb-20">
+            <main className="flex-1 pb-20">
               {children}
             </main>
+            <Footer />
             <Cart />
           </div>
         </CartProvider>

@@ -223,47 +223,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">FrySuRoll</h3>
-              <p className="text-gray-300 mb-4">
-                Especialistas em sushi frito! O melhor delivery de Goiânia com Hot Rolls, Sushidogrolls e pratos únicos.
-              </p>
-              <div className="flex items-center space-x-2 text-gray-300">
-                <MapPin className="w-4 h-4" />
-                <span>Goiânia - GO</span>
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Contato</h4>
-              <div className="space-y-2 text-gray-300">
-                <div className="flex items-center space-x-2">
-                  <Phone className="w-4 h-4" />
-                  <span>(62) 99504-5038</span>
-                </div>
-                <p>WhatsApp: (62) 99504-5038</p>
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Entrega</h4>
-              <div className="text-gray-300 space-y-1">
-                <p>• R$ 1,00 por quilômetro</p>
-                <p>• Toda Goiânia</p>
-                <p>• Entrega rápida</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-            <p>&copy; 2024 FrySuRoll. Todos os direitos reservados.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
