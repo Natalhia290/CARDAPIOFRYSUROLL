@@ -26,9 +26,13 @@ export default function Home() {
       
       {/* Hero Section */}
       <section className="relative h-screen overflow-hidden">
-        {/* Vídeo de fundo */}
+        {/* Vídeos de fundo */}
         <HeroVideo 
-          videoSrc="/videos/hero-video.mp4"
+          videoSources={[
+            "/videos/hero-video-1.mp4",
+            "/videos/hero-video-2.mp4", 
+            "/videos/hero-video-3.mp4"
+          ]}
           fallbackImage="/images/hero-bg.jpg"
           className="h-full"
         />

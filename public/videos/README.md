@@ -5,8 +5,10 @@ Esta pasta contém os vídeos que serão exibidos no site.
 ## Como usar:
 
 1. **Adicione seus vídeos aqui** com os seguintes nomes:
-   - `hero-video.mp4` - Vídeo principal do hero section
-   - `hero-video.webm` - Versão WebM (opcional, para melhor compatibilidade)
+   - `hero-video-1.mp4` - Primeiro vídeo do hero section
+   - `hero-video-2.mp4` - Segundo vídeo do hero section  
+   - `hero-video-3.mp4` - Terceiro vídeo do hero section
+   - `hero-video-1.webm`, `hero-video-2.webm`, `hero-video-3.webm` - Versões WebM (opcional)
 
 2. **Especificações recomendadas:**
    - **Formato:** MP4 (H.264) e/ou WebM
@@ -29,16 +31,23 @@ Esta pasta contém os vídeos que serão exibidos no site.
 ```
 public/
 ├── videos/
-│   ├── hero-video.mp4
-│   ├── hero-video.webm
+│   ├── hero-video-1.mp4
+│   ├── hero-video-2.mp4
+│   ├── hero-video-3.mp4
+│   ├── hero-video-1.webm (opcional)
+│   ├── hero-video-2.webm (opcional)
+│   ├── hero-video-3.webm (opcional)
 │   └── README.md
 └── images/
     └── hero-bg.jpg
 ```
 
 ## Controles do vídeo:
-- O vídeo inicia automaticamente em loop
-- Controles aparecem ao passar o mouse
-- Botão de play/pause
-- Botão de mute/unmute
-- Vídeo fica mudo por padrão (melhor para UX)
+- **Múltiplos vídeos:** Sistema alterna entre 3 vídeos
+- **Auto-play:** Inicia automaticamente em loop
+- **Navegação:** Botões ⏮️ e ⏭️ para trocar vídeos
+- **Controles:** Aparecem ao passar o mouse
+- **Play/Pause:** Botão de reproduzir/pausar
+- **Mute/Unmute:** Botão de som
+- **Indicador:** Mostra qual vídeo está sendo exibido (ex: "Vídeo 2/3")
+- **Mudo por padrão:** Melhor para UX
