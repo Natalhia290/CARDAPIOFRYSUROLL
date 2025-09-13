@@ -82,9 +82,9 @@ export default function DailyPromo() {
       setPromoData(todayPromo)
       
       // Verifica se já foi fechado hoje
-      const today = new Date().toDateString()
+      const todayString = new Date().toDateString()
       const closedToday = localStorage.getItem('dailyPromoClosed')
-      if (closedToday !== today) {
+      if (closedToday !== todayString) {
         setIsVisible(true)
       }
     }
@@ -94,8 +94,8 @@ export default function DailyPromo() {
 
   const handleClose = () => {
     setIsVisible(false)
-    const today = new Date().toDateString()
-    localStorage.setItem('dailyPromoClosed', today)
+    const todayString = new Date().toDateString()
+    localStorage.setItem('dailyPromoClosed', todayString)
   }
 
   if (!isVisible) return null
