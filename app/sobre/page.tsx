@@ -84,9 +84,9 @@ export default function Sobre() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <div className="text-2xl font-bold text-green-600">✓</div>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Frete Grátis</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Taxa de Entrega</h3>
               <p className="text-gray-600">
-                Entrega gratuita para toda Goiânia - sem surpresas!
+                Taxa de entrega de R$ 10,00 para toda Goiânia
               </p>
             </div>
             
@@ -127,7 +127,7 @@ export default function Sobre() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <span className="text-green-600 font-bold">✓</span>
-                  <span className="text-gray-700">Frete grátis</span>
+                  <span className="text-gray-700">Taxa de entrega: R$ 10,00</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Clock className="w-5 h-5 text-primary-600" />

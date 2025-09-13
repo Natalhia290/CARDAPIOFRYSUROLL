@@ -36,7 +36,7 @@ export default function Cart() {
 ${items}
 
 *Subtotal:* ${formatPrice(getTotalPrice())}
-*Taxa de entrega:* GRÁTIS
+*Taxa de entrega:* R$ 10,00
 
 _Pedido feito pelo site FrySuRoll_`
 
@@ -169,9 +169,9 @@ _Pedido feito pelo site FrySuRoll_`
               <span>Subtotal:</span>
               <span>{formatPrice(getTotalPrice())}</span>
             </div>
-            <div className="flex justify-between text-sm text-green-600 font-medium">
+            <div className="flex justify-between text-sm text-gray-600 font-medium">
               <span>Taxa de entrega:</span>
-              <span>GRÁTIS</span>
+              <span>R$ 10,00</span>
             </div>
             {getTotalPrice() < 50 && (
               <div className="flex justify-between text-sm text-orange-600 font-medium">

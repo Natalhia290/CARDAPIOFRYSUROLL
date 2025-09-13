@@ -97,11 +97,11 @@ export default function Home() {
               <p className="text-gray-600">Entregamos em toda Goiânia com rapidez e qualidade</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="w-8 h-8 text-green-600 mx-auto mb-3 flex items-center justify-center">
-                <span className="text-2xl font-bold">✓</span>
+              <div className="w-8 h-8 text-primary-600 mx-auto mb-3 flex items-center justify-center">
+                <span className="text-2xl font-bold">🚚</span>
               </div>
-              <h3 className="font-semibold text-lg mb-2">Frete Grátis</h3>
-              <p className="text-gray-600">Entrega gratuita para toda Goiânia</p>
+              <h3 className="font-semibold text-lg mb-2">Taxa de Entrega</h3>
+              <p className="text-gray-600">R$ 10,00 para toda Goiânia</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <Phone className="w-8 h-8 text-primary-600 mx-auto mb-3" />

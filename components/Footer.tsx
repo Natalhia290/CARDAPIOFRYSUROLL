@@ -40,7 +40,7 @@ export default function Footer() {
             <div>
               <h4 className="font-semibold mb-4">Entrega</h4>
               <div className="text-gray-300 space-y-1">
-                <p>• Frete GRÁTIS</p>
+                <p>• Taxa de entrega: R$ 10,00</p>
                 <p>• Toda Goiânia</p>
                 <p>• Entrega rápida</p>
                 <p>• Pedido mínimo: R$ 50,00</p>
