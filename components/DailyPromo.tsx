@@ -22,7 +22,7 @@ export default function DailyPromo() {
       const promos = {
         0: { // Domingo
           title: 'DOMINGO É DIA DE MEGA PROMOÇÃO! 🍣',
-          description: 'Sushidogroll Casal Salmão + 2 Pepsi por apenas R$ 49,90!',
+          description: 'Sushidogroll Casal Salmão (2 unidades) por apenas R$ 49,90!',
           discount: '50% OFF',
           icon: '🔥',
           bgColor: 'bg-gradient-to-r from-red-500 to-pink-500',
@@ -70,7 +70,7 @@ export default function DailyPromo() {
         },
         6: { // Sábado
           title: 'SÁBADO É DIA DE MEGA PROMOÇÃO! 🍣',
-          description: 'Sushidogroll Casal Salmão + 2 Pepsi por apenas R$ 49,90!',
+          description: 'Sushidogroll Casal Salmão (2 unidades) por apenas R$ 49,90!',
           discount: '50% OFF',
           icon: '🔥',
           bgColor: 'bg-gradient-to-r from-red-500 to-pink-500',
