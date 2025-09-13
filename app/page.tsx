@@ -8,6 +8,7 @@ import { formatPrice } from '@/utils/formatPrice'
 import ProductImage from '@/components/ProductImage'
 import AnimatedSushi from '@/components/AnimatedSushi'
 import DailyPromo from '@/components/DailyPromo'
+import HeroVideo from '@/components/HeroVideo'
 
 export default function Home() {
   const { addItem } = useCart()
@@ -24,19 +25,24 @@ export default function Home() {
       <DailyPromo />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16 overflow-hidden">
-        {/* Sushis Animados */}
-        <AnimatedSushi />
+      <section className="relative h-screen overflow-hidden">
+        {/* Vídeo de fundo */}
+        <HeroVideo 
+          videoSrc="/videos/hero-video.mp4"
+          fallbackImage="/images/hero-bg.jpg"
+          className="h-full"
+        />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+        {/* Conteúdo sobreposto */}
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">
               FrySuRoll
             </h1>
-            <p className="text-xl md:text-2xl mb-4 text-primary-100">
+            <p className="text-xl md:text-2xl mb-4 text-white drop-shadow-lg">
               O melhor delivery de sushi frito de Goiânia
             </p>
-            <p className="text-lg md:text-xl mb-8 text-primary-200 font-semibold">
+            <p className="text-lg md:text-xl mb-8 text-white drop-shadow-lg font-semibold">
               🍤 Especialistas em Hot Rolls e Sushidogrolls 🍤
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -55,6 +61,9 @@ export default function Home() {
             </div>
           </div>
         </div>
+        
+        {/* Sushis Animados */}
+        <AnimatedSushi />
       </section>
 
       {/* Speciality Section */}
