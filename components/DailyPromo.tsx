@@ -22,7 +22,7 @@ export default function DailyPromo() {
       const promos = {
         0: { // Domingo
           title: 'DOMINGO É DIA DE MEGA PROMOÇÃO! 🍣',
-          description: 'Sushidogroll Casal Salmão (2 unidades) por apenas R$ 49,90!',
+          description: 'Sushidogroll Casal Salmão (2 unidades) por apenas R$ 49,90! Hoje aberto até 21:30!',
           discount: '50% OFF',
           icon: '🔥',
           bgColor: 'bg-gradient-to-r from-red-500 to-pink-500',
@@ -30,7 +30,7 @@ export default function DailyPromo() {
         },
         1: { // Segunda
           title: 'SEGUNDA-FEIRA COM DESCONTO! 🍤',
-          description: 'Mini Sushi Dog Tilápia por apenas R$ 9,99!',
+          description: 'Mini Sushi Dog Tilápia por apenas R$ 9,99! Hoje aberto até 21:30!',
           discount: '33% OFF',
           icon: '⚡',
           bgColor: 'bg-gradient-to-r from-blue-500 to-purple-500',
@@ -38,7 +38,7 @@ export default function DailyPromo() {
         },
         2: { // Terça
           title: 'TERÇA É DIA DE HOT BARATO! 🌯',
-          description: '1 Hot por R$ 0,50! Máximo 20 unidades!',
+          description: '1 Hot por R$ 0,50! Máximo 20 unidades! Hoje aberto até 21:30!',
           discount: '50% OFF',
           icon: '💥',
           bgColor: 'bg-gradient-to-r from-green-500 to-teal-500',
@@ -46,7 +46,7 @@ export default function DailyPromo() {
         },
         3: { // Quarta
           title: 'QUARTA DO COMBO CASAL! 👫',
-          description: 'Sushidogroll Casal Tilápia + 2 Pepsi por R$ 39,90!',
+          description: 'Sushidogroll Casal Tilápia + 2 Pepsi por R$ 39,90! Hoje aberto até 21:30!',
           discount: '20% OFF',
           icon: '💕',
           bgColor: 'bg-gradient-to-r from-pink-500 to-rose-500',
@@ -54,7 +54,7 @@ export default function DailyPromo() {
         },
         4: { // Quinta
           title: 'QUINTA DO SALMÃO! 🐟',
-          description: 'Sushidogroll Salmão + Bebida por apenas R$ 24,99!',
+          description: 'Sushidogroll Salmão + Bebida por apenas R$ 24,99! Hoje aberto até 21:30!',
           discount: '17% OFF',
           icon: '🐟',
           bgColor: 'bg-gradient-to-r from-orange-500 to-red-500',
@@ -62,7 +62,7 @@ export default function DailyPromo() {
         },
         5: { // Sexta
           title: 'SEXTA É DIA DE FESTA! 🎉',
-          description: 'Mini Sushi Dog Salmão por apenas R$ 14,99!',
+          description: 'Mini Sushi Dog Salmão por apenas R$ 14,99! Hoje aberto até 21:30!',
           discount: '25% OFF',
           icon: '🎊',
           bgColor: 'bg-gradient-to-r from-purple-500 to-indigo-500',
@@ -70,7 +70,7 @@ export default function DailyPromo() {
         },
         6: { // Sábado
           title: 'SÁBADO É DIA DE MEGA PROMOÇÃO! 🍣',
-          description: 'Sushidogroll Casal Salmão (2 unidades) por apenas R$ 49,90!',
+          description: 'Sushidogroll Casal Salmão (2 unidades) por apenas R$ 49,90! Hoje aberto até 21:30!',
           discount: '50% OFF',
           icon: '🔥',
           bgColor: 'bg-gradient-to-r from-red-500 to-pink-500',
@@ -81,12 +81,8 @@ export default function DailyPromo() {
       const todayPromo = promos[dayOfWeek as keyof typeof promos]
       setPromoData(todayPromo)
       
-      // Verifica se já foi fechado hoje
-      const todayString = new Date().toDateString()
-      const closedToday = localStorage.getItem('dailyPromoClosed')
-      if (closedToday !== todayString) {
-        setIsVisible(true)
-      }
+      // Sempre mostra a promoção
+      setIsVisible(true)
     }
 
     checkPromo()
