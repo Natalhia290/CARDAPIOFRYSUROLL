@@ -20,8 +20,10 @@ export default function StoreStatus() {
       
       setCurrentTime(currentTimeString)
       
-      // Loja aberta das 18:00 às 23:59
-      const isOpen = currentHour >= 18 && currentHour <= 23
+      // Loja aberta das 18:00 às 21:30 (hoje) ou 23:59 (outros dias)
+      const today = new Date()
+      const isToday = today.getDate() === new Date().getDate()
+      const isOpen = currentHour >= 18 && (isToday ? currentHour < 21 || (currentHour === 21 && currentMinute <= 30) : currentHour <= 23)
       setIsStoreOpen(isOpen)
       
       if (!isOpen) {
@@ -56,7 +58,7 @@ export default function StoreStatus() {
         {isStoreOpen ? (
           <>
             <CheckCircle className="w-4 h-4" />
-            <span>🍣 LOJA ABERTA - Funcionamento: 18:00 às 23:59</span>
+            <span>🍣 LOJA ABERTA - Hoje até às 21:30</span>
           </>
         ) : (
           <>
