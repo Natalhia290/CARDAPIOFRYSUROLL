@@ -125,12 +125,32 @@ export default function Home() {
             href="https://www.ifood.com.br/delivery/goiania-go/fry-residencial-itaipu/aacdd501-7523-4273-b5cf-9f8610b08e9c?utm_medium=share"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors"
+            className="inline-flex items-center space-x-3 bg-orange-500 text-white px-8 py-4 rounded-xl hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
-            <span>Pedir no iFood</span>
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
+            <img 
+              src="https://static.ifood.com.br/image/upload/t_high/logosgde/ifood_logo.png" 
+              alt="iFood Logo" 
+              className="w-8 h-8"
+              onError={(e) => {
+                // Fallback para ícone SVG caso a imagem não carregue
+                const target = e.target as HTMLImageElement
+                target.style.display = 'none'
+                const parent = target.parentElement
+                if (parent) {
+                  const svg = document.createElement('div')
+                  svg.innerHTML = `
+                    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                  `
+                  parent.insertBefore(svg.firstChild, target)
+                }
+              }}
+            />
+            <div className="text-left">
+              <div className="font-bold text-lg">Pedir no iFood</div>
+              <div className="text-sm opacity-90">Aproveite as promoções!</div>
+            </div>
           </a>
         </div>
       </section>
