@@ -54,6 +54,7 @@ export default function VideoGallery({
     setCurrentVideoIndex(index)
     setShowModal(true)
     setIsPlaying(true)
+    setIsMuted(false) // Ativa o áudio quando abre o modal
   }
 
   const closeModal = () => {
@@ -85,37 +86,30 @@ export default function VideoGallery({
                 className="relative group cursor-pointer bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 onClick={() => openModal(index)}
               >
-                {/* Thumbnail do vídeo */}
+                {/* Vídeo reproduzindo automaticamente */}
                 <div className="relative aspect-video bg-gray-200">
                   <video
                     className="w-full h-full object-cover"
                     muted
+                    autoPlay
+                    loop
+                    playsInline
                     preload="metadata"
                   >
                     <source src={video} type="video/mp4" />
                   </video>
                   
-                  {/* Overlay com play button */}
-                  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center group-hover:bg-opacity-50 transition-all">
-                    <div className="bg-white bg-opacity-20 rounded-full p-4 group-hover:scale-110 transition-transform">
-                      <Play className="w-8 h-8 text-white" />
+                  {/* Overlay sutil para indicar que é clicável */}
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center">
+                    <div className="bg-white bg-opacity-0 group-hover:bg-opacity-20 rounded-full p-4 group-hover:scale-110 transition-all">
+                      <Play className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
                   </div>
 
-                  {/* Número do vídeo */}
-                  <div className="absolute top-2 left-2 bg-black bg-opacity-50 text-white text-sm px-2 py-1 rounded">
-                    Vídeo {index + 1}
+                  {/* Indicador de clique para áudio */}
+                  <div className="absolute top-2 right-2 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded">
+                    🔊 Clique para áudio
                   </div>
-                </div>
-
-                {/* Título do vídeo */}
-                <div className="p-4">
-                  <h3 className="font-semibold text-gray-900">
-                    Sushi Video {index + 1}
-                  </h3>
-                  <p className="text-sm text-gray-600 mt-1">
-                    Clique para assistir
-                  </p>
                 </div>
               </div>
             ))}
