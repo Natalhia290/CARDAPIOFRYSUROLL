@@ -86,7 +86,7 @@ export default function Sobre() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Taxa de Entrega</h3>
               <p className="text-gray-600">
-                Taxa de entrega de R$ 10,00 para toda Goiânia
+                Taxa de entrega de R$ 10,00 (acima de 9 km)
               </p>
             </div>
             
@@ -127,7 +127,7 @@ export default function Sobre() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <span className="text-green-600 font-bold">✓</span>
-                  <span className="text-gray-700">Taxa de entrega: R$ 10,00</span>
+                  <span className="text-gray-700">Taxa de entrega: R$ 10,00 (acima de 9 km)</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Clock className="w-5 h-5 text-primary-600" />

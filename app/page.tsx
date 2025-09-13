@@ -101,7 +101,7 @@ export default function Home() {
                 <span className="text-2xl font-bold">🚚</span>
               </div>
               <h3 className="font-semibold text-lg mb-2">Taxa de Entrega</h3>
-              <p className="text-gray-600">R$ 10,00 para toda Goiânia</p>
+              <p className="text-gray-600">R$ 10,00 (acima de 9 km)</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <Phone className="w-8 h-8 text-primary-600 mx-auto mb-3" />
