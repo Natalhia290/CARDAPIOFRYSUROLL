@@ -111,7 +111,14 @@ _Pedido feito pelo site FrySuRoll_`
                     </button>
                     <span className="w-8 text-center text-sm">{item.quantity}</span>
                     <button
-                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                      onClick={() => {
+                        // Limitar hot por 1 real a 40 unidades
+                        if (item.id === 'hot-1-real' && item.quantity >= 40) {
+                          alert('Máximo de 40 unidades do hot por 1 real!')
+                          return
+                        }
+                        updateQuantity(item.id, item.quantity + 1)
+                      }}
                       className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300"
                     >
                       <Plus className="w-3 h-3" />
