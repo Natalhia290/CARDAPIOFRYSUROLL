@@ -91,13 +91,13 @@ export default function Footer() {
             🚀 Desenvolvimento profissional de sites modernos e responsivos
           </p>
           <a 
-            href="https://wa.me/5562981841878?text=Olá! Vi o site do FrySuRoll e gostaria de saber mais sobre desenvolvimento de sites."
+            href="https://sites-vendas-nine.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-all duration-300 transform hover:scale-105"
           >
-            <MessageCircle className="w-5 h-5" />
-            <span>Falar com o Desenvolvedor</span>
+            <Code className="w-5 h-5" />
+            <span>Ver Site do Desenvolvedor</span>
           </a>
           <p className="text-purple-200 text-sm mt-3">
             ✨ Sites que vendem mais e impressionam clientes! ✨
