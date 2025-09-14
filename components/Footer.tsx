@@ -81,6 +81,29 @@ export default function Footer() {
           </div>
         </div>
         
+        {/* Criador do Site - Destaque */}
+        <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl p-6 mt-8 text-center opacity-50 hover:opacity-100 transition-opacity duration-300">
+          <div className="flex items-center justify-center space-x-3 mb-3">
+            <Code className="w-6 h-6 text-white" />
+            <h3 className="text-xl font-bold text-white">Site Criado por</h3>
+          </div>
+          <p className="text-purple-100 mb-4">
+            🚀 Desenvolvimento profissional de sites modernos e responsivos
+          </p>
+          <a 
+            href="https://wa.me/5562981841878?text=Olá! Vi o site do FrySuRoll e gostaria de saber mais sobre desenvolvimento de sites."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center space-x-2 bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-all duration-300 transform hover:scale-105"
+          >
+            <MessageCircle className="w-5 h-5" />
+            <span>Falar com o Desenvolvedor</span>
+          </a>
+          <p className="text-purple-200 text-sm mt-3">
+            ✨ Sites que vendem mais e impressionam clientes! ✨
+          </p>
+        </div>
+        
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
           <p>&copy; 2024 FrySuRoll. Todos os direitos reservados.</p>
         </div>
