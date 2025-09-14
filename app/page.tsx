@@ -9,6 +9,7 @@ import ProductImage from '@/components/ProductImage'
 import AnimatedSushi from '@/components/AnimatedSushi'
 import DailyPromo from '@/components/DailyPromo'
 import VideoGallery from '@/components/VideoGallery'
+import StoreClosedPopup from '@/components/StoreClosedPopup'
 
 export default function Home() {
   const { addItem } = useCart()
@@ -21,6 +22,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      {/* Store Closed Popup */}
+      <StoreClosedPopup />
+      
       {/* Daily Promo Popup */}
       <DailyPromo />
       
