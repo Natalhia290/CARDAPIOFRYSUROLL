@@ -49,30 +49,30 @@ export default function StoreStatus() {
   }, [])
 
   return (
-    <div className={`w-full py-3 px-4 text-center text-sm font-bold relative overflow-hidden ${
+    <div className={`w-full py-4 px-4 text-center text-sm font-bold relative overflow-hidden ${
       isStoreOpen 
-        ? 'bg-gradient-to-r from-green-900 to-emerald-900 text-green-300 border-b border-green-500/30' 
-        : 'bg-gradient-to-r from-red-900 to-pink-900 text-red-300 border-b border-red-500/30'
+        ? 'bg-gradient-to-r from-green-800 to-emerald-800 text-green-100 border-b border-green-400/30' 
+        : 'bg-gradient-to-r from-red-800 to-red-900 text-red-100 border-b border-red-400/30'
     }`}>
-      <div className="absolute inset-0 cyber-grid opacity-20"></div>
-      <div className="relative z-10 flex items-center justify-center gap-3">
+      <div className="absolute inset-0 japanese-grid opacity-20"></div>
+      <div className="relative z-10 flex items-center justify-center gap-4">
         {isStoreOpen ? (
           <>
-            <div className="w-3 h-3 bg-green-400 rounded-full tech-pulse"></div>
-            <CheckCircle className="w-5 h-5 text-green-400" />
-            <span className="text-lg">🍣 LOJA ABERTA - Hoje até às 21:30</span>
-            <div className="w-3 h-3 bg-green-400 rounded-full tech-pulse" style={{animationDelay: '1s'}}></div>
+            <div className="w-4 h-4 bg-green-400 rounded-full japanese-pulse"></div>
+            <CheckCircle className="w-6 h-6 text-green-400" />
+            <span className="text-xl">🍣 LOJA ABERTA - Hoje até às 21:30</span>
+            <div className="w-4 h-4 bg-green-400 rounded-full japanese-pulse" style={{animationDelay: '1s'}}></div>
           </>
         ) : (
           <>
-            <div className="w-3 h-3 bg-red-400 rounded-full tech-pulse"></div>
-            <XCircle className="w-5 h-5 text-red-400" />
-            <span className="text-lg">🍣 LOJA FECHADA - Próxima abertura: {nextOpenTime}</span>
-            <div className="w-3 h-3 bg-red-400 rounded-full tech-pulse" style={{animationDelay: '1s'}}></div>
+            <div className="w-4 h-4 bg-red-400 rounded-full japanese-pulse"></div>
+            <XCircle className="w-6 h-6 text-red-400" />
+            <span className="text-xl">🍣 LOJA FECHADA - Próxima abertura: {nextOpenTime}</span>
+            <div className="w-4 h-4 bg-red-400 rounded-full japanese-pulse" style={{animationDelay: '1s'}}></div>
           </>
         )}
-        <Clock className="w-5 h-5 text-cyan-400" />
-        <span className="text-cyan-300 font-mono">{currentTime}</span>
+        <Clock className="w-6 h-6 text-amber-400" />
+        <span className="text-amber-200 font-mono text-lg">{currentTime}</span>
       </div>
     </div>
   )

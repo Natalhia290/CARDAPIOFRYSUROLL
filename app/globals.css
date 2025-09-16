@@ -8,46 +8,67 @@
   }
   
   :root {
-    --tech-cyan: #00d4ff;
-    --tech-purple: #8b5cf6;
-    --tech-pink: #ec4899;
-    --tech-blue: #3b82f6;
-    --tech-green: #10b981;
-    --tech-orange: #f59e0b;
-    --tech-dark: #0f172a;
-    --tech-darker: #020617;
-    --tech-glass: rgba(255, 255, 255, 0.1);
-    --tech-glass-border: rgba(255, 255, 255, 0.2);
+    --japanese-red: #dc2626;
+    --japanese-gold: #f59e0b;
+    --japanese-black: #1f2937;
+    --japanese-cream: #fef3c7;
+    --japanese-sage: #6b7280;
+    --japanese-bamboo: #84cc16;
+    --japanese-sakura: #fce7f3;
+    --japanese-ink: #374151;
+    --japanese-paper: #f9fafb;
+    --japanese-accent: #ef4444;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25;
+    @apply bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/25 border border-red-500/20;
   }
   
   .btn-secondary {
-    @apply bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25;
+    @apply bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-amber-500/25 border border-amber-500/20;
   }
   
   .card {
-    @apply bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 overflow-hidden hover:bg-white/20 transition-all duration-300;
+    @apply bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
   }
   
-  .tech-card {
-    @apply bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-cyan-500/20 overflow-hidden hover:border-cyan-400/40 transition-all duration-500;
+  .japanese-card {
+    @apply bg-gradient-to-br from-white to-red-50 rounded-2xl shadow-xl border border-red-200/50 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2;
   }
   
-  .tech-glow {
-    @apply shadow-2xl shadow-cyan-500/20 hover:shadow-cyan-400/40;
+  .japanese-glow {
+    @apply shadow-lg shadow-red-500/10 hover:shadow-red-500/20;
   }
   
-  .neon-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500;
+  .japanese-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-800;
   }
   
-  .neon-border {
-    @apply border-2 border-transparent bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-border;
+  .japanese-border {
+    @apply border-2 border-red-200 hover:border-red-300;
+  }
+  
+  .bamboo-pattern {
+    background-image: 
+      linear-gradient(90deg, transparent 98%, #84cc16 100%),
+      linear-gradient(0deg, transparent 98%, #84cc16 100%);
+    background-size: 20px 20px;
+  }
+  
+  .sakura-pattern {
+    background-image: 
+      radial-gradient(circle at 20% 80%, #fce7f3 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, #fce7f3 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, #fce7f3 0%, transparent 50%);
+    background-size: 100px 100px;
+  }
+  
+  .wave-pattern {
+    background-image: 
+      linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.1) 50%, transparent 70%);
+    background-size: 60px 60px;
   }
   
   .input-field {
@@ -159,59 +180,68 @@
   }
   
   .card-hover:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 25px 50px -12px rgba(0, 212, 255, 0.25), 0 0 0 1px rgba(0, 212, 255, 0.1);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 40px -12px rgba(220, 38, 38, 0.15), 0 0 0 1px rgba(220, 38, 38, 0.1);
   }
   
-  .tech-pulse {
-    animation: techPulse 2s ease-in-out infinite;
+  .japanese-pulse {
+    animation: japanesePulse 3s ease-in-out infinite;
   }
   
-  .tech-float {
-    animation: techFloat 6s ease-in-out infinite;
+  .japanese-float {
+    animation: japaneseFloat 4s ease-in-out infinite;
   }
   
-  .tech-glow-hover {
+  .japanese-glow-hover {
     transition: all 0.3s ease;
   }
   
-  .tech-glow-hover:hover {
-    box-shadow: 0 0 30px rgba(0, 212, 255, 0.4), 0 0 60px rgba(139, 92, 246, 0.2);
+  .japanese-glow-hover:hover {
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.2), 0 0 40px rgba(245, 158, 11, 0.1);
   }
   
-  .cyber-grid {
+  .japanese-grid {
     background-image: 
-      linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
+      linear-gradient(rgba(220, 38, 38, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(220, 38, 38, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
   }
   
-  .hologram {
-    background: linear-gradient(45deg, transparent 30%, rgba(0, 212, 255, 0.1) 50%, transparent 70%);
+  .sakura-fall {
+    background: linear-gradient(45deg, transparent 30%, rgba(252, 231, 243, 0.3) 50%, transparent 70%);
     background-size: 200% 200%;
-    animation: hologram 3s ease-in-out infinite;
+    animation: sakuraFall 6s ease-in-out infinite;
   }
   
-  @keyframes techPulse {
+  .bamboo-sway {
+    animation: bambooSway 8s ease-in-out infinite;
+  }
+  
+  @keyframes japanesePulse {
     0%, 100% { 
-      box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+      box-shadow: 0 0 15px rgba(220, 38, 38, 0.2);
       transform: scale(1);
     }
     50% { 
-      box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
-      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(220, 38, 38, 0.4);
+      transform: scale(1.01);
     }
   }
   
-  @keyframes techFloat {
+  @keyframes japaneseFloat {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-10px) rotate(1deg); }
-    66% { transform: translateY(-5px) rotate(-1deg); }
+    50% { transform: translateY(-8px) rotate(0.5deg); }
   }
   
-  @keyframes hologram {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  @keyframes sakuraFall {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+  }
+  
+  @keyframes bambooSway {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(1deg); }
+    75% { transform: rotate(-1deg); }
   }
 }

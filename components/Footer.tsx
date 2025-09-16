@@ -5,59 +5,59 @@ import FooterGames from './FooterGames'
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-16 relative overflow-hidden">
-      <div className="absolute inset-0 cyber-grid opacity-10"></div>
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-cyan-500/5 via-transparent to-purple-500/5"></div>
+    <footer className="bg-gradient-to-br from-red-900 via-red-800 to-red-900 text-white py-20 relative overflow-hidden">
+      <div className="absolute inset-0 japanese-grid opacity-10"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-500/5 via-transparent to-amber-500/5"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Empresa */}
           <div>
-            <h3 className="text-2xl font-black neon-text mb-6">FRYSUROLL</h3>
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              <span className="text-cyan-400 font-bold">Especialistas em sushi frito!</span> O melhor delivery de Goiânia com Hot Rolls, Sushidogrolls e pratos únicos.
+            <h3 className="text-3xl font-black japanese-text mb-8">FRYSUROLL</h3>
+            <p className="text-red-100 mb-8 leading-relaxed text-lg">
+              <span className="text-red-300 font-bold">Especialistas em sushi frito!</span> O melhor delivery de Goiânia com Hot Rolls, Sushidogrolls e pratos únicos.
             </p>
-            <div className="flex items-center space-x-3 text-cyan-400">
-              <MapPin className="w-5 h-5" />
-              <span className="font-semibold">Goiânia - GO</span>
+            <div className="flex items-center space-x-4 text-red-200">
+              <MapPin className="w-6 h-6" />
+              <span className="font-semibold text-lg">Goiânia - GO</span>
             </div>
           </div>
           
           {/* Contato */}
             <div>
-              <h4 className="text-xl font-bold neon-text mb-6">CONTATO</h4>
-              <div className="space-y-4 text-gray-300">
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-purple-400" />
-                  <span className="font-semibold">(62) 99504-5038</span>
+              <h4 className="text-2xl font-bold japanese-text mb-8">CONTATO</h4>
+              <div className="space-y-6 text-red-100">
+                <div className="flex items-center space-x-4">
+                  <Phone className="w-6 h-6 text-amber-400" />
+                  <span className="font-semibold text-lg">(62) 99504-5038</span>
                 </div>
-                <p className="text-cyan-400 font-semibold">WhatsApp: (62) 99504-5038</p>
-                <div className="mt-4 p-4 bg-slate-800/50 rounded-xl border border-cyan-500/20">
-                  <p className="font-bold text-cyan-400 mb-2">Horário de Funcionamento:</p>
-                  <p className="text-white font-semibold">18:00 às 23:59</p>
+                <p className="text-red-300 font-semibold text-lg">WhatsApp: (62) 99504-5038</p>
+                <div className="mt-6 p-6 bg-red-800/50 rounded-xl border border-red-500/20">
+                  <p className="font-bold text-amber-400 mb-3 text-lg">Horário de Funcionamento:</p>
+                  <p className="text-white font-semibold text-lg">18:00 às 23:59</p>
                 </div>
               </div>
             </div>
           
           {/* Entrega */}
             <div>
-              <h4 className="text-xl font-bold neon-text mb-6">ENTREGA</h4>
-              <div className="text-gray-300 space-y-3">
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
-                  <span className="font-semibold">Taxa de entrega: <span className="text-cyan-400">R$ 10,00</span> (acima de 9 km)</span>
+              <h4 className="text-2xl font-bold japanese-text mb-8">ENTREGA</h4>
+              <div className="text-red-100 space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                  <span className="font-semibold text-lg">Taxa de entrega: <span className="text-red-300">R$ 10,00</span> (acima de 9 km)</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                  <span className="font-semibold">Toda Goiânia</span>
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-amber-400 rounded-full"></div>
+                  <span className="font-semibold text-lg">Toda Goiânia</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                  <span className="font-semibold">Entrega ultrarrápida</span>
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                  <span className="font-semibold text-lg">Entrega rápida</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                  <span className="font-semibold">Pedido mínimo: <span className="text-yellow-400">R$ 50,00</span></span>
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                  <span className="font-semibold text-lg">Pedido mínimo: <span className="text-yellow-300">R$ 50,00</span></span>
                 </div>
               </div>
             </div>
