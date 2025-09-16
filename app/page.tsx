@@ -210,7 +210,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-300 mb-6 italic">
-                "O melhor sushi frito de Goiânia! Os Hot Rolls são incríveis, crocantes por fora e macios por dentro. Entrega super rápida!"
+                &ldquo;O melhor sushi frito de Goiânia! Os Hot Rolls são incríveis, crocantes por fora e macios por dentro. Entrega super rápida!&rdquo;
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
@@ -231,7 +231,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-300 mb-6 italic">
-                "Os Sushidogrolls são uma obra de arte! Nunca comi nada igual. A qualidade dos ingredientes é excepcional."
+                &ldquo;Os Sushidogrolls são uma obra de arte! Nunca comi nada igual. A qualidade dos ingredientes é excepcional.&rdquo;
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
@@ -252,7 +252,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-300 mb-6 italic">
-                "Atendimento perfeito e comida deliciosa! Sempre peço pelo WhatsApp e chega rapidinho. Recomendo demais!"
+                &ldquo;Atendimento perfeito e comida deliciosa! Sempre peço pelo WhatsApp e chega rapidinho. Recomendo demais!&rdquo;
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
