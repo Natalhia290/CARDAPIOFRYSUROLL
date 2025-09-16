@@ -41,12 +41,8 @@ export default function Footer() {
             <h4 className="text-xl font-bold mb-6 text-blue-400">Entrega</h4>
             <div className="space-y-4 text-gray-300">
               <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                <span className="font-semibold">Taxa: <span className="text-blue-400">R$ 10,00</span> (acima de 9 km)</span>
-              </div>
-              <div className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                <span className="font-semibold">Toda Goiânia</span>
+                <span className="font-semibold">Entrega gratuita até 10 km</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
