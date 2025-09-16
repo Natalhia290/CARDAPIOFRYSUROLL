@@ -76,9 +76,9 @@ _Pedido feito pelo site FrySuRoll_`
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center p-4 animate-fadeIn">
-      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-hidden transform animate-slideUp">
+      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-hidden transform animate-slideUp flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-red-600 to-red-700 text-white p-6">
+        <div className="bg-gradient-to-r from-red-600 to-red-700 text-white p-6 flex-shrink-0">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
@@ -98,8 +98,8 @@ _Pedido feito pelo site FrySuRoll_`
           </div>
         </div>
 
-        {/* Cart Items */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-4 max-h-[60vh]">
+        {/* Cart Items - Scrollable */}
+        <div className="flex-1 overflow-y-auto p-6 space-y-4 min-h-0">
           {state.items.length === 0 ? (
             <div className="text-center py-12">
               <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -164,48 +164,53 @@ _Pedido feito pelo site FrySuRoll_`
                 </div>
               ))}
 
-              {/* Customer Info */}
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 space-y-4">
-                <div className="flex items-center space-x-2 mb-4">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm">📝</span>
-                  </div>
-                  <h3 className="font-bold text-gray-800 text-lg">Dados para entrega</h3>
-                </div>
-                <div className="space-y-3">
-                  <input
-                    type="text"
-                    value={customerName}
-                    onChange={(e) => setCustomerName(e.target.value)}
-                    placeholder="Seu nome completo"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-white"
-                    required
-                  />
-                  <input
-                    type="text"
-                    value={customerAddress}
-                    onChange={(e) => setCustomerAddress(e.target.value)}
-                    placeholder="Endereço completo com bairro"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-white"
-                    required
-                  />
-                  <input
-                    type="tel"
-                    value={customerPhone}
-                    onChange={(e) => setCustomerPhone(e.target.value)}
-                    placeholder="Telefone/WhatsApp (62) 99999-9999"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-white"
-                    required
-                  />
-                </div>
-              </div>
             </>
           )}
         </div>
 
+        {/* Customer Info - Fixed Section */}
+        {state.items.length > 0 && (
+          <div className="px-6 py-4 bg-gray-50 border-t border-gray-200 flex-shrink-0">
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 space-y-3">
+              <div className="flex items-center space-x-2 mb-3">
+                <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                  <span className="text-white text-xs">📝</span>
+                </div>
+                <h3 className="font-bold text-gray-800">Dados para entrega</h3>
+              </div>
+              <div className="space-y-2">
+                <input
+                  type="text"
+                  value={customerName}
+                  onChange={(e) => setCustomerName(e.target.value)}
+                  placeholder="Seu nome completo"
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-white"
+                  required
+                />
+                <input
+                  type="text"
+                  value={customerAddress}
+                  onChange={(e) => setCustomerAddress(e.target.value)}
+                  placeholder="Endereço completo com bairro"
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-white"
+                  required
+                />
+                <input
+                  type="tel"
+                  value={customerPhone}
+                  onChange={(e) => setCustomerPhone(e.target.value)}
+                  placeholder="Telefone/WhatsApp (62) 99999-9999"
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-white"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Footer */}
         {state.items.length > 0 && (
-          <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 space-y-4 sticky bottom-0">
+          <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 space-y-4 flex-shrink-0">
             {/* Price Summary */}
             <div className="bg-white rounded-2xl p-4 space-y-3">
               <div className="flex justify-between text-sm">
