@@ -63,7 +63,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <div className="text-4xl mb-3">🚚</div>
-                <h3 className="text-lg font-bold text-gray-800 mb-2">Entrega até 10 km</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-2">Entrega em Goiânia</h3>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <div className="text-4xl mb-3">⚡</div>
@@ -145,15 +145,15 @@ export default function Home() {
                 <span className="text-3xl">🚚</span>
               </div>
               <h3 className="text-xl font-bold mb-4">Entrega Rápida</h3>
-              <p className="text-red-100">Entregamos até 10 km em Goiânia com rapidez e qualidade premium</p>
+              <p className="text-red-100">Entregamos em Goiânia com rapidez e qualidade premium</p>
             </div>
 
             <div className="text-center">
               <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-3xl">🎯</span>
               </div>
-              <h3 className="text-xl font-bold mb-4">Entrega Gratuita</h3>
-              <p className="text-red-100">Entregamos até 10 km sem taxa adicional</p>
+              <h3 className="text-xl font-bold mb-4">Taxa de Entrega</h3>
+              <p className="text-red-100">Será calculada pela loja</p>
             </div>
 
             <div className="text-center">
