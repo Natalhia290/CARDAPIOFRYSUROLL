@@ -2,133 +2,137 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @layer base {
   html {
     font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
   }
   
   :root {
-    --japanese-red: #dc2626;
-    --japanese-gold: #f59e0b;
-    --japanese-black: #1f2937;
-    --japanese-cream: #fef3c7;
-    --japanese-sage: #6b7280;
-    --japanese-bamboo: #84cc16;
-    --japanese-sakura: #fce7f3;
-    --japanese-ink: #374151;
-    --japanese-paper: #f9fafb;
-    --japanese-accent: #ef4444;
+    --primary: #1e40af;
+    --primary-dark: #1e3a8a;
+    --secondary: #f59e0b;
+    --accent: #ef4444;
+    --neutral: #64748b;
+    --neutral-light: #f1f5f9;
+    --neutral-dark: #334155;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --background: #ffffff;
+    --surface: #f8fafc;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
   }
 }
 
 @layer components {
+  /* Modern Button Styles */
   .btn-primary {
-    @apply bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/25 border border-red-500/20;
+    @apply bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transform hover:-translate-y-1;
   }
   
   .btn-secondary {
-    @apply bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-amber-500/25 border border-amber-500/20;
+    @apply bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-amber-500/25 transform hover:-translate-y-1;
   }
   
+  .btn-outline {
+    @apply border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300;
+  }
+  
+  /* Modern Card Styles */
   .card {
-    @apply bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+    @apply bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2;
   }
   
-  .japanese-card {
-    @apply bg-gradient-to-br from-white to-red-50 rounded-2xl shadow-xl border border-red-200/50 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2;
+  .card-elevated {
+    @apply bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-3;
   }
   
-  .japanese-glow {
-    @apply shadow-lg shadow-red-500/10 hover:shadow-red-500/20;
+  .card-glass {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 overflow-hidden hover:bg-white/90 transition-all duration-300;
   }
   
-  .japanese-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-800;
+  /* Modern Text Styles */
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
   }
   
-  .japanese-border {
-    @apply border-2 border-red-200 hover:border-red-300;
+  .text-accent {
+    @apply text-amber-600 font-semibold;
   }
   
-  .bamboo-pattern {
-    background-image: 
-      linear-gradient(90deg, transparent 98%, #84cc16 100%),
-      linear-gradient(0deg, transparent 98%, #84cc16 100%);
-    background-size: 20px 20px;
+  .text-muted {
+    @apply text-gray-500;
   }
   
-  .sakura-pattern {
-    background-image: 
-      radial-gradient(circle at 20% 80%, #fce7f3 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, #fce7f3 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, #fce7f3 0%, transparent 50%);
-    background-size: 100px 100px;
+  /* Modern Background Patterns */
+  .bg-gradient-modern {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
   
-  .wave-pattern {
-    background-image: 
-      linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.1) 50%, transparent 70%);
-    background-size: 60px 60px;
+  .bg-gradient-warm {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   }
   
-  .japanese-bg {
-    background-image: 
-      url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'),
-      linear-gradient(rgba(220, 38, 38, 0.8), rgba(220, 38, 38, 0.9));
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: overlay;
+  .bg-gradient-cool {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   }
   
-  .sushi-bg {
-    background-image: 
-      url('https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'),
-      linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95));
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: overlay;
+  .bg-gradient-neutral {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   }
   
-  .japanese-pattern {
-    background-image: 
-      url('https://images.unsplash.com/photo-1542640244-a8b2b2c8c8c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'),
-      linear-gradient(rgba(220, 38, 38, 0.1), rgba(245, 158, 11, 0.1));
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: overlay;
+  .bg-gradient-accent {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
   }
   
-  .cherry-blossom {
-    background-image: 
-      url('https://images.unsplash.com/photo-1522383225653-ed111181a951?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'),
-      linear-gradient(rgba(252, 231, 243, 0.3), rgba(252, 231, 243, 0.5));
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: overlay;
-  }
-  
-  .bamboo-forest {
-    background-image: 
-      url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'),
-      linear-gradient(rgba(132, 204, 22, 0.1), rgba(132, 204, 22, 0.2));
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: overlay;
-  }
-  
-  .japanese-texture {
-    background-image: 
-      url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'),
-      linear-gradient(rgba(220, 38, 38, 0.05), rgba(245, 158, 11, 0.05));
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: overlay;
-  }
-  
+  /* Modern Input Styles */
   .input-field {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+    @apply w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300;
   }
   
+  /* Modern Animations */
+  .fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+  
+  .scale-in {
+    animation: scaleIn 0.5s ease-out;
+  }
+  
+  /* Modern Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25;
+  }
+  
+  /* Modern Divider */
+  .divider {
+    @apply w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto;
+  }
+  
+  /* Modern Section Spacing */
+  .section-padding {
+    @apply py-20 px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Modern Container */
+  .container-modern {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  /* Product Styles */
   .product-image {
     @apply w-full h-56 object-cover transition-transform duration-300 hover:scale-105;
   }
@@ -147,6 +151,7 @@
     overflow: hidden;
   }
   
+  /* Sushi Animations */
   .sushi-float {
     animation: float 3s ease-in-out infinite;
   }
@@ -159,6 +164,33 @@
     animation: bubble 1.5s ease-in-out infinite;
   }
   
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(30px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+  
+  @keyframes scaleIn {
+    from { 
+      opacity: 0; 
+      transform: scale(0.9); 
+    }
+    to { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+  }
+  
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
@@ -167,212 +199,5 @@
   @keyframes bubble {
     0%, 100% { transform: translateY(0px) scale(1); }
     50% { transform: translateY(-5px) scale(1.1); }
-  }
-  
-  .sushi-run {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .bounce-in {
-    animation: bounceIn 0.6s ease-out;
-  }
-  
-  .slide-in-left {
-    animation: slideInLeft 0.5s ease-out;
-  }
-  
-  .slide-in-right {
-    animation: slideInRight 0.5s ease-out;
-  }
-  
-  .fade-in-up {
-    animation: fadeInUp 0.6s ease-out;
-  }
-  
-  .pulse-glow {
-    animation: pulseGlow 2s ease-in-out infinite;
-  }
-  
-  .float-slow {
-    animation: floatSlow 3s ease-in-out infinite;
-  }
-  
-  @keyframes bounceIn {
-    0% { transform: scale(0.3); opacity: 0; }
-    50% { transform: scale(1.05); }
-    70% { transform: scale(0.9); }
-    100% { transform: scale(1); opacity: 1; }
-  }
-  
-  @keyframes slideInLeft {
-    0% { transform: translateX(-100px); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
-  }
-  
-  @keyframes slideInRight {
-    0% { transform: translateX(100px); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
-  }
-  
-  @keyframes fadeInUp {
-    0% { transform: translateY(30px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-  }
-  
-  @keyframes pulseGlow {
-    0%, 100% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.3); }
-    50% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.6); }
-  }
-  
-  @keyframes floatSlow {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-  }
-  
-  .card-hover {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .card-hover:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 20px 40px -12px rgba(220, 38, 38, 0.15), 0 0 0 1px rgba(220, 38, 38, 0.1);
-  }
-  
-  .japanese-pulse {
-    animation: japanesePulse 3s ease-in-out infinite;
-  }
-  
-  .japanese-float {
-    animation: japaneseFloat 4s ease-in-out infinite;
-  }
-  
-  .japanese-glow-hover {
-    transition: all 0.3s ease;
-  }
-  
-  .japanese-glow-hover:hover {
-    box-shadow: 0 0 20px rgba(220, 38, 38, 0.2), 0 0 40px rgba(245, 158, 11, 0.1);
-  }
-  
-  .japanese-grid {
-    background-image: 
-      linear-gradient(rgba(220, 38, 38, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(220, 38, 38, 0.05) 1px, transparent 1px);
-    background-size: 30px 30px;
-  }
-  
-  .sakura-fall {
-    background: linear-gradient(45deg, transparent 30%, rgba(252, 231, 243, 0.3) 50%, transparent 70%);
-    background-size: 200% 200%;
-    animation: sakuraFall 6s ease-in-out infinite;
-  }
-  
-  .bamboo-sway {
-    animation: bambooSway 8s ease-in-out infinite;
-  }
-  
-  @keyframes japanesePulse {
-    0%, 100% { 
-      box-shadow: 0 0 15px rgba(220, 38, 38, 0.2);
-      transform: scale(1);
-    }
-    50% { 
-      box-shadow: 0 0 25px rgba(220, 38, 38, 0.4);
-      transform: scale(1.01);
-    }
-  }
-  
-  @keyframes japaneseFloat {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-8px) rotate(0.5deg); }
-  }
-  
-  @keyframes sakuraFall {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-  }
-  
-  @keyframes bambooSway {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(1deg); }
-    75% { transform: rotate(-1deg); }
-  }
-  
-  .torii-gate {
-    position: relative;
-  }
-  
-  .torii-gate::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 40px;
-    background: linear-gradient(45deg, #dc2626, #ef4444);
-    border-radius: 50% 50% 0 0;
-    box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
-  }
-  
-  .torii-gate::after {
-    content: '';
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 8px;
-    background: linear-gradient(90deg, #dc2626, #ef4444);
-    border-radius: 4px;
-  }
-  
-  .japanese-divider {
-    position: relative;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #dc2626, #f59e0b, #dc2626, transparent);
-    margin: 2rem 0;
-  }
-  
-  .japanese-divider::before {
-    content: '❋';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 0 1rem;
-    color: #dc2626;
-    font-size: 1.5rem;
-  }
-  
-  .floating-particles {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .floating-particles::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-      radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.3), transparent),
-      radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2), transparent),
-      radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.4), transparent),
-      radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.3), transparent),
-      radial-gradient(2px 2px at 160px 30px, rgba(255, 255, 255, 0.2), transparent);
-    background-repeat: repeat;
-    background-size: 200px 100px;
-    animation: floatingParticles 20s linear infinite;
-    pointer-events: none;
-  }
-  
-  @keyframes floatingParticles {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-100px); }
   }
 }
