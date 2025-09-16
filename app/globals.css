@@ -49,7 +49,7 @@
   }
   
   .card-elevated {
-    @apply bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-3;
+    @apply bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-3;
   }
   
   .card-glass {
