@@ -38,7 +38,7 @@ export default function DailyPromo() {
         },
         2: { // Terça
           title: 'TERÇA É DIA DE HOT BARATO! 🌯',
-          description: '1 Hot por R$ 0,50! Máximo 20 unidades! Hoje aberto até 21:30!',
+          description: '1 Hot por R$ 1,00! Máximo 20 unidades! Hoje aberto até 21:30!',
           discount: '50% OFF',
           icon: '💥',
           bgColor: 'bg-gradient-to-r from-green-500 to-teal-500',
