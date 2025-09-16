@@ -106,7 +106,7 @@ export default function Footer() {
               🚀 Desenvolvimento profissional de sites modernos e responsivos
             </p>
             <a 
-              href="https://sites-vendas-nine.vercel.app/"
+              href="https://starkdev-sites-vendas.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25"
