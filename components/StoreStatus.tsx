@@ -49,25 +49,30 @@ export default function StoreStatus() {
   }, [])
 
   return (
-    <div className={`w-full py-2 px-4 text-center text-sm font-medium ${
+    <div className={`w-full py-3 px-4 text-center text-sm font-bold relative overflow-hidden ${
       isStoreOpen 
-        ? 'bg-green-100 text-green-800 border-b border-green-200' 
-        : 'bg-red-100 text-red-800 border-b border-red-200'
+        ? 'bg-gradient-to-r from-green-900 to-emerald-900 text-green-300 border-b border-green-500/30' 
+        : 'bg-gradient-to-r from-red-900 to-pink-900 text-red-300 border-b border-red-500/30'
     }`}>
-      <div className="flex items-center justify-center gap-2">
+      <div className="absolute inset-0 cyber-grid opacity-20"></div>
+      <div className="relative z-10 flex items-center justify-center gap-3">
         {isStoreOpen ? (
           <>
-            <CheckCircle className="w-4 h-4" />
-            <span>🍣 LOJA ABERTA - Hoje até às 21:30</span>
+            <div className="w-3 h-3 bg-green-400 rounded-full tech-pulse"></div>
+            <CheckCircle className="w-5 h-5 text-green-400" />
+            <span className="text-lg">🍣 LOJA ABERTA - Hoje até às 21:30</span>
+            <div className="w-3 h-3 bg-green-400 rounded-full tech-pulse" style={{animationDelay: '1s'}}></div>
           </>
         ) : (
           <>
-            <XCircle className="w-4 h-4" />
-            <span>🍣 LOJA FECHADA - Próxima abertura: {nextOpenTime}</span>
+            <div className="w-3 h-3 bg-red-400 rounded-full tech-pulse"></div>
+            <XCircle className="w-5 h-5 text-red-400" />
+            <span className="text-lg">🍣 LOJA FECHADA - Próxima abertura: {nextOpenTime}</span>
+            <div className="w-3 h-3 bg-red-400 rounded-full tech-pulse" style={{animationDelay: '1s'}}></div>
           </>
         )}
-        <Clock className="w-4 h-4" />
-        <span>{currentTime}</span>
+        <Clock className="w-5 h-5 text-cyan-400" />
+        <span className="text-cyan-300 font-mono">{currentTime}</span>
       </div>
     </div>
   )
