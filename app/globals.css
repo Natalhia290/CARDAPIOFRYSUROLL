@@ -11,21 +11,21 @@
   }
   
   :root {
-    --primary: #1e40af;
-    --primary-dark: #1e3a8a;
+    --primary: #dc2626;
+    --primary-dark: #991b1b;
     --secondary: #f59e0b;
     --accent: #ef4444;
-    --neutral: #64748b;
-    --neutral-light: #f1f5f9;
-    --neutral-dark: #334155;
+    --neutral: #374151;
+    --neutral-light: #1f2937;
+    --neutral-dark: #111827;
     --success: #10b981;
     --warning: #f59e0b;
     --error: #ef4444;
-    --background: #ffffff;
-    --surface: #f8fafc;
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #94a3b8;
+    --background: #0f0f0f;
+    --surface: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
   }
 }
 
@@ -69,25 +69,34 @@
     @apply text-gray-500;
   }
   
-  /* Modern Background Patterns */
+  /* Dark Theme Background Patterns */
   .bg-gradient-modern {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1b1b 100%);
   }
   
   .bg-gradient-warm {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, #2d1b1b 0%, #4a1a1a 100%);
   }
   
   .bg-gradient-cool {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   }
   
   .bg-gradient-neutral {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   }
   
   .bg-gradient-accent {
-    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    background: linear-gradient(135deg, #2d1b1b 0%, #3d1a1a 100%);
+  }
+
+  /* Japanese Dark Theme */
+  .bg-japanese-dark {
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #2d1b1b 100%);
+  }
+
+  .bg-japanese-red {
+    background: linear-gradient(135deg, #1a0a0a 0%, #2d1b1b 50%, #4a1a1a 100%);
   }
   
   /* Modern Input Styles */
@@ -199,5 +208,253 @@
   @keyframes bubble {
     0%, 100% { transform: translateY(0px) scale(1); }
     50% { transform: translateY(-5px) scale(1.1); }
+  }
+
+  /* Advanced Animations */
+  @keyframes gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes floatUp {
+    0% { 
+      opacity: 0; 
+      transform: translateY(50px) scale(0.8); 
+    }
+    50% { 
+      opacity: 1; 
+      transform: translateY(-10px) scale(1.05); 
+    }
+    100% { 
+      opacity: 0; 
+      transform: translateY(-50px) scale(1); 
+    }
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px rgba(239, 68, 68, 0.6);
+    }
+  }
+
+  @keyframes rotate-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Modern Button Enhancements */
+  .btn-primary-modern {
+    @apply relative bg-gradient-to-r from-red-600 via-red-700 to-red-800 text-white font-bold py-5 px-10 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-red-500/50 transform hover:-translate-y-2 hover:scale-105 overflow-hidden;
+  }
+
+  .btn-primary-modern::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-red-400 via-red-500 to-red-600 opacity-0 transition-opacity duration-500;
+  }
+
+  .btn-primary-modern:hover::before {
+    @apply opacity-100;
+  }
+
+  .btn-secondary-modern {
+    @apply relative bg-transparent border-2 border-white text-white font-bold py-5 px-10 rounded-2xl transition-all duration-500 hover:bg-white hover:text-red-600 transform hover:-translate-y-2 hover:scale-105 overflow-hidden;
+  }
+
+  .btn-secondary-modern::before {
+    content: '';
+    @apply absolute inset-0 bg-white opacity-0 transition-all duration-500 transform scale-x-0;
+  }
+
+  .btn-secondary-modern:hover::before {
+    @apply scale-x-100 opacity-100;
+  }
+
+  /* Feature Cards */
+  .feature-card {
+    @apply bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center transition-all duration-500 hover:bg-white/20 hover:scale-105 hover:-translate-y-2 border border-white/20;
+  }
+
+  .feature-icon {
+    @apply text-6xl mb-4 animate-bounce;
+  }
+
+  .feature-title {
+    @apply text-2xl font-bold mb-3 text-white;
+  }
+
+  .feature-desc {
+    @apply text-red-100 text-lg;
+  }
+
+  /* Floating Sushi Animation */
+  .floating-sushi {
+    @apply absolute text-4xl opacity-20;
+    animation: floatUp 6s infinite linear;
+  }
+
+  .floating-sushi:nth-child(1) { left: 10%; animation-delay: 0s; }
+  .floating-sushi:nth-child(2) { left: 30%; animation-delay: 2s; }
+  .floating-sushi:nth-child(3) { left: 60%; animation-delay: 4s; }
+  .floating-sushi:nth-child(4) { left: 80%; animation-delay: 1s; }
+
+  /* Gradient Text Animation */
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+  }
+
+  /* Fade In Up Animation */
+  .fade-in-up {
+    animation: fadeInUp 1s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Shimmer Effect */
+  .shimmer {
+    @apply relative overflow-hidden;
+  }
+
+  .shimmer::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent;
+    animation: shimmer 2s infinite;
+  }
+
+  /* Pulse Glow Effect */
+  .pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+
+  /* Rotate Slow */
+  .rotate-slow {
+    animation: rotate-slow 20s linear infinite;
+  }
+
+  /* Product Card Enhancements */
+  .product-card {
+    @apply bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .product-card:hover .product-image {
+    @apply scale-110;
+  }
+
+  .product-badge {
+    @apply absolute top-4 right-4 bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg;
+  }
+
+  .product-price {
+    @apply text-2xl font-bold text-red-600;
+  }
+
+  .product-original-price {
+    @apply text-lg text-gray-400 line-through;
+  }
+
+  /* Loading Skeleton */
+  .skeleton {
+    @apply bg-gray-200 animate-pulse rounded;
+  }
+
+  .skeleton-text {
+    @apply h-4 bg-gray-200 rounded animate-pulse;
+  }
+
+  .skeleton-image {
+    @apply w-full h-56 bg-gray-200 rounded animate-pulse;
+  }
+
+  /* Scroll Indicator */
+  .scroll-indicator {
+    @apply w-6 h-10 border-2 border-white/50 rounded-full flex justify-center;
+  }
+
+  .scroll-indicator::after {
+    content: '';
+    @apply w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse;
+  }
+
+  /* Testimonial Cards */
+  .testimonial-card {
+    @apply bg-white rounded-2xl p-8 shadow-xl border border-gray-100 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2;
+  }
+
+  .testimonial-avatar {
+    @apply w-16 h-16 rounded-full mx-auto mb-4 object-cover border-4 border-red-100;
+  }
+
+  .testimonial-rating {
+    @apply flex justify-center mb-4;
+  }
+
+  .testimonial-star {
+    @apply text-yellow-400 text-xl;
+  }
+
+  /* Animation Classes */
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-slideUp {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  /* Mobile Optimizations */
+  @media (max-width: 768px) {
+    .feature-card {
+      @apply p-6;
+    }
+    
+    .feature-icon {
+      @apply text-4xl;
+    }
+    
+    .feature-title {
+      @apply text-xl;
+    }
+    
+    .btn-primary-modern,
+    .btn-secondary-modern {
+      @apply py-4 px-8 text-lg;
+    }
   }
 }

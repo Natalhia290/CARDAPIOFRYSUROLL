@@ -75,87 +75,123 @@ _Pedido feito pelo site FrySuRoll_`
   if (!state.isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-end sm:items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-md max-h-[90vh] overflow-hidden">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center p-4 animate-fadeIn">
+      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-hidden transform animate-slideUp">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b">
-          <h2 className="text-lg font-semibold">Carrinho</h2>
-          <button
-            onClick={toggleCart}
-            className="text-gray-500 hover:text-gray-700"
-          >
-            <X className="w-6 h-6" />
-          </button>
+        <div className="bg-gradient-to-r from-red-600 to-red-700 text-white p-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                <span className="text-2xl">🛒</span>
+              </div>
+              <div>
+                <h2 className="text-xl font-bold">Seu Carrinho</h2>
+                <p className="text-red-100 text-sm">{state.items.length} item(s)</p>
+              </div>
+            </div>
+            <button
+              onClick={toggleCart}
+              className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 hover:scale-110"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
         {/* Cart Items */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4 max-h-[60vh]">
+        <div className="flex-1 overflow-y-auto p-6 space-y-4 max-h-[60vh]">
           {state.items.length === 0 ? (
-            <div className="text-center py-8 text-gray-500">
-              <p>Seu carrinho está vazio</p>
+            <div className="text-center py-12">
+              <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-4xl">🛒</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-600 mb-2">Carrinho vazio</h3>
+              <p className="text-gray-500">Adicione alguns itens deliciosos!</p>
             </div>
           ) : (
             <>
-              {state.items.map((item) => (
-                <div key={item.id} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                  <div className="flex-1">
-                    <h3 className="font-medium text-sm">{item.name}</h3>
-                    <p className="text-xs text-gray-500">{formatPrice(item.price)}</p>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <button
-                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300"
-                    >
-                      <Minus className="w-3 h-3" />
-                    </button>
-                    <span className="w-8 text-center text-sm">{item.quantity}</span>
-                    <button
-                      onClick={() => {
-                        // Limitar hot por 1 real a 40 unidades
-                        if (item.id === 'hot-1-real' && item.quantity >= 40) {
-                          alert('Máximo de 40 unidades do hot por 1 real!')
-                          return
-                        }
-                        updateQuantity(item.id, item.quantity + 1)
-                      }}
-                      className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300"
-                    >
-                      <Plus className="w-3 h-3" />
-                    </button>
-                    <button
-                      onClick={() => removeItem(item.id)}
-                      className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center hover:bg-red-200 text-red-600"
-                    >
-                      <Trash2 className="w-3 h-3" />
-                    </button>
+              {state.items.map((item, index) => (
+                <div 
+                  key={item.id} 
+                  className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-4 border border-gray-200 hover:shadow-lg transition-all duration-300 animate-fadeInUp"
+                  style={{animationDelay: `${index * 0.1}s`}}
+                >
+                  <div className="flex items-center space-x-4">
+                    <div className="flex-1">
+                      <h3 className="font-bold text-gray-800 mb-1">{item.name}</h3>
+                      <p className="text-sm text-gray-600 mb-2">{formatPrice(item.price)} cada</p>
+                      <div className="flex items-center space-x-2">
+                        <span className="text-lg font-bold text-red-600">
+                          {formatPrice(item.price * item.quantity)}
+                        </span>
+                        <span className="text-sm text-gray-500">
+                          ({item.quantity}x)
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center space-x-2">
+                      <button
+                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                        className="w-8 h-8 rounded-full bg-red-100 hover:bg-red-200 flex items-center justify-center transition-all duration-300 hover:scale-110 text-red-600"
+                      >
+                        <Minus className="w-4 h-4" />
+                      </button>
+                      <span className="w-10 text-center text-lg font-bold text-gray-800 bg-white rounded-lg py-1">
+                        {item.quantity}
+                      </span>
+                      <button
+                        onClick={() => {
+                          // Limitar hot por 1 real a 40 unidades
+                          if (item.id === 'hot-1-real' && item.quantity >= 40) {
+                            alert('Máximo de 40 unidades do hot por 1 real!')
+                            return
+                          }
+                          updateQuantity(item.id, item.quantity + 1)
+                        }}
+                        className="w-8 h-8 rounded-full bg-green-100 hover:bg-green-200 flex items-center justify-center transition-all duration-300 hover:scale-110 text-green-600"
+                      >
+                        <Plus className="w-4 h-4" />
+                      </button>
+                      <button
+                        onClick={() => removeItem(item.id)}
+                        className="w-8 h-8 rounded-full bg-red-500 hover:bg-red-600 flex items-center justify-center transition-all duration-300 hover:scale-110 text-white"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
 
               {/* Customer Info */}
-              <div className="space-y-3">
-                <h3 className="font-medium text-gray-700">Dados para entrega</h3>
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 space-y-4">
+                <div className="flex items-center space-x-2 mb-4">
+                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-sm">📝</span>
+                  </div>
+                  <h3 className="font-bold text-gray-800 text-lg">Dados para entrega</h3>
+                </div>
                 <input
                   type="text"
                   value={customerName}
                   onChange={(e) => setCustomerName(e.target.value)}
-                  placeholder="Seu nome"
-                  className="input-field"
+                  placeholder="Seu nome completo"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                 />
                 <input
                   type="text"
                   value={customerAddress}
                   onChange={(e) => setCustomerAddress(e.target.value)}
-                  placeholder="Endereço completo"
-                  className="input-field"
+                  placeholder="Endereço completo com bairro"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                 />
                 <input
                   type="tel"
                   value={customerPhone}
                   onChange={(e) => setCustomerPhone(e.target.value)}
-                  placeholder="Telefone/WhatsApp"
-                  className="input-field"
+                  placeholder="Telefone/WhatsApp (62) 99999-9999"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                 />
               </div>
             </>
@@ -164,49 +200,56 @@ _Pedido feito pelo site FrySuRoll_`
 
         {/* Footer */}
         {state.items.length > 0 && (
-          <div className="border-t p-4 space-y-3 sticky bottom-0 bg-white">
-            <div className="flex justify-between text-sm">
-              <span>Subtotal:</span>
-              <span>{formatPrice(getTotalPrice())}</span>
-            </div>
-            <div className="flex justify-between text-sm text-gray-600 font-medium">
-              <span>Taxa de entrega:</span>
-              <span>R$ 10,00 (acima de 9 km)</span>
-            </div>
-            {getTotalPrice() < 50 && (
-              <div className="flex justify-between text-sm text-orange-600 font-medium">
-                <span>Pedido mínimo:</span>
-                <span>R$ 50,00</span>
+          <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 space-y-4 sticky bottom-0">
+            {/* Price Summary */}
+            <div className="bg-white rounded-2xl p-4 space-y-3">
+              <div className="flex justify-between text-sm">
+                <span className="text-gray-600">Subtotal:</span>
+                <span className="font-semibold">{formatPrice(getTotalPrice())}</span>
               </div>
-            )}
-            <div className="flex justify-between font-semibold text-lg">
-              <span>Subtotal:</span>
-              <span className={getTotalPrice() < 50 ? 'text-orange-600' : 'text-gray-900'}>
-                {formatPrice(getTotalPrice())}
-              </span>
-            </div>
-            {getTotalPrice() < 50 && (
-              <div className="text-xs text-orange-600 text-center">
-                Faltam {formatPrice(50 - getTotalPrice())} para o pedido mínimo
+              <div className="flex justify-between text-sm text-gray-600">
+                <span>Taxa de entrega:</span>
+                <span>R$ 10,00 (acima de 9 km)</span>
               </div>
-            )}
+              {getTotalPrice() < 50 && (
+                <div className="flex justify-between text-sm text-orange-600 font-medium bg-orange-50 p-2 rounded-lg">
+                  <span>Pedido mínimo:</span>
+                  <span>R$ 50,00</span>
+                </div>
+              )}
+              <div className="border-t pt-3">
+                <div className="flex justify-between font-bold text-xl">
+                  <span>Total:</span>
+                  <span className={getTotalPrice() < 50 ? 'text-orange-600' : 'text-green-600'}>
+                    {formatPrice(getTotalPrice())}
+                  </span>
+                </div>
+              </div>
+              {getTotalPrice() < 50 && (
+                <div className="text-center text-sm text-orange-600 bg-orange-100 p-3 rounded-lg">
+                  <span className="font-semibold">Faltam {formatPrice(50 - getTotalPrice())} para o pedido mínimo</span>
+                </div>
+              )}
+            </div>
             
-            <div className="flex space-x-2">
+            {/* Action Buttons */}
+            <div className="flex space-x-3">
               <button
                 onClick={clearCart}
-                className="flex-1 bg-gray-200 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors"
+                className="flex-1 bg-gray-200 text-gray-700 py-4 px-6 rounded-2xl font-semibold hover:bg-gray-300 transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2"
               >
-                Limpar
+                <Trash2 className="w-4 h-4" />
+                <span>Limpar</span>
               </button>
               <button
                 onClick={sendToWhatsApp}
-                className={`flex-1 py-2 px-4 rounded-lg transition-colors flex items-center justify-center space-x-2 ${
+                className={`flex-1 py-4 px-6 rounded-2xl font-bold transition-all duration-300 flex items-center justify-center space-x-2 transform hover:scale-105 ${
                   getTotalPrice() < 50 
-                    ? 'bg-orange-500 text-white hover:bg-orange-600' 
-                    : 'bg-green-600 text-white hover:bg-green-700'
+                    ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 shadow-lg hover:shadow-orange-500/25' 
+                    : 'bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg hover:shadow-green-500/25'
                 }`}
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-5 h-5" />
                 <span>
                   {getTotalPrice() < 50 ? 'Pedido Mínimo R$ 50' : 'Pedir no WhatsApp'}
                 </span>
